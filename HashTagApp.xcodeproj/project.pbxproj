@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5334F96B1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */; };
+		5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */; };
+		5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */; };
+		5334F9721E3D03390002FDEA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F9701E3D03390002FDEA /* AppState.swift */; };
+		5334F9731E3D03390002FDEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F9711E3D03390002FDEA /* Constants.swift */; };
 		53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EABFBF1E3CDA9900649275 /* AppDelegate.swift */; };
-		53EABFC21E3CDA9900649275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EABFC11E3CDA9900649275 /* ViewController.swift */; };
 		53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC31E3CDA9900649275 /* Main.storyboard */; };
 		53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC61E3CDA9900649275 /* Assets.xcassets */; };
 		53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */; };
@@ -19,9 +22,12 @@
 /* Begin PBXFileReference section */
 		0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HashTagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HashTagLaunchScreen.storyboard; sourceTree = "<group>"; };
+		5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMainViewController.swift; sourceTree = "<group>"; };
+		5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTSignInViewController.swift; sourceTree = "<group>"; };
+		5334F9701E3D03390002FDEA /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		5334F9711E3D03390002FDEA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		53EABFBC1E3CDA9900649275 /* HashTagApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HashTagApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EABFBF1E3CDA9900649275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		53EABFC11E3CDA9900649275 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		53EABFC41E3CDA9900649275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53EABFC61E3CDA9900649275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53EABFCB1E3CDA9900649275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,12 +70,15 @@
 			isa = PBXGroup;
 			children = (
 				53EABFBF1E3CDA9900649275 /* AppDelegate.swift */,
-				53EABFC11E3CDA9900649275 /* ViewController.swift */,
 				53EABFC31E3CDA9900649275 /* Main.storyboard */,
 				53EABFC61E3CDA9900649275 /* Assets.xcassets */,
 				53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */,
+				5334F9701E3D03390002FDEA /* AppState.swift */,
+				5334F9711E3D03390002FDEA /* Constants.swift */,
 				53EABFCB1E3CDA9900649275 /* Info.plist */,
 				5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */,
+				5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */,
+				5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */,
 			);
 			path = HashTagApp;
 			sourceTree = "<group>";
@@ -216,8 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53EABFC21E3CDA9900649275 /* ViewController.swift in Sources */,
+				5334F9731E3D03390002FDEA /* Constants.swift in Sources */,
+				5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */,
+				5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */,
 				53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */,
+				5334F9721E3D03390002FDEA /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
