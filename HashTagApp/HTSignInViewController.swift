@@ -17,15 +17,16 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(HTSignInViewController.handleSignInNotification(_ :)), name: .firebaseSignInSuccess, object: nil)
+        
         GIDSignIn.sharedInstance().uiDelegate = self
-//        if let user = FIRAuth.auth()?.currentUser {
-//            self.signedIn(user)
-//        }
-//        else {
-//            GIDSignIn.sharedInstance().signInSilently()
-//        }
-        GIDSignIn.sharedInstance().signInSilently()
+        if let user = FIRAuth.auth()?.currentUser {
+            self.signedIn(user)
+        }
+        else {
+            GIDSignIn.sharedInstance().signInSilently()
+        }
     }
     
     
