@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5334F96B1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */; };
+		53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EABFBF1E3CDA9900649275 /* AppDelegate.swift */; };
+		53EABFC21E3CDA9900649275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EABFC11E3CDA9900649275 /* ViewController.swift */; };
+		53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC31E3CDA9900649275 /* Main.storyboard */; };
+		53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC61E3CDA9900649275 /* Assets.xcassets */; };
+		53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */; };
+		D681BCF62E81B947E36AEDBC /* Pods_HashTagApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HashTagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HashTagLaunchScreen.storyboard; sourceTree = "<group>"; };
+		53EABFBC1E3CDA9900649275 /* HashTagApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HashTagApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53EABFBF1E3CDA9900649275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53EABFC11E3CDA9900649275 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53EABFC41E3CDA9900649275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53EABFC61E3CDA9900649275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53EABFCB1E3CDA9900649275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF2C5A96D734EB840837E018 /* Pods-HashTagApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HashTagApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp.release.xcconfig"; sourceTree = "<group>"; };
+		FF2D00CC37D2968C627BDEEB /* Pods-HashTagApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HashTagApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		53EABFB91E3CDA9900649275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D681BCF62E81B947E36AEDBC /* Pods_HashTagApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53EABFB31E3CDA9900649275 = {
+			isa = PBXGroup;
+			children = (
+				53EABFBE1E3CDA9900649275 /* HashTagApp */,
+				53EABFBD1E3CDA9900649275 /* Products */,
+				7DC14EC67AC1B9C0D46F3FDE /* Pods */,
+				E79CCE997CE6C50CB46A5B63 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		53EABFBD1E3CDA9900649275 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53EABFBC1E3CDA9900649275 /* HashTagApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53EABFBE1E3CDA9900649275 /* HashTagApp */ = {
+			isa = PBXGroup;
+			children = (
+				53EABFBF1E3CDA9900649275 /* AppDelegate.swift */,
+				53EABFC11E3CDA9900649275 /* ViewController.swift */,
+				53EABFC31E3CDA9900649275 /* Main.storyboard */,
+				53EABFC61E3CDA9900649275 /* Assets.xcassets */,
+				53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */,
+				53EABFCB1E3CDA9900649275 /* Info.plist */,
+				5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */,
+			);
+			path = HashTagApp;
+			sourceTree = "<group>";
+		};
+		7DC14EC67AC1B9C0D46F3FDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF2D00CC37D2968C627BDEEB /* Pods-HashTagApp.debug.xcconfig */,
+				FF2C5A96D734EB840837E018 /* Pods-HashTagApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E79CCE997CE6C50CB46A5B63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		53EABFBB1E3CDA9900649275 /* HashTagApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53EABFCE1E3CDA9900649275 /* Build configuration list for PBXNativeTarget "HashTagApp" */;
+			buildPhases = (
+				BDCB20E1829941B757BA7AFB /* [CP] Check Pods Manifest.lock */,
+				53EABFB81E3CDA9900649275 /* Sources */,
+				53EABFB91E3CDA9900649275 /* Frameworks */,
+				53EABFBA1E3CDA9900649275 /* Resources */,
+				C3D1EDDF2B7E504177B30060 /* [CP] Embed Pods Frameworks */,
+				AC92CFE9860B1548D6707493 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HashTagApp;
+			productName = HashTagApp;
+			productReference = 53EABFBC1E3CDA9900649275 /* HashTagApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		53EABFB41E3CDA9900649275 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Keith Caffrey";
+				TargetAttributes = {
+					53EABFBB1E3CDA9900649275 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8B7YLHTUEA;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 53EABFB71E3CDA9900649275 /* Build configuration list for PBXProject "HashTagApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 53EABFB31E3CDA9900649275;
+			productRefGroup = 53EABFBD1E3CDA9900649275 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53EABFBB1E3CDA9900649275 /* HashTagApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53EABFBA1E3CDA9900649275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5334F96B1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard in Resources */,
+				53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */,
+				53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */,
+				53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AC92CFE9860B1548D6707493 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDCB20E1829941B757BA7AFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C3D1EDDF2B7E504177B30060 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		53EABFB81E3CDA9900649275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53EABFC21E3CDA9900649275 /* ViewController.swift in Sources */,
+				53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		53EABFC31E3CDA9900649275 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53EABFC41E3CDA9900649275 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		53EABFCC1E3CDA9900649275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53EABFCD1E3CDA9900649275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		53EABFCF1E3CDA9900649275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF2D00CC37D2968C627BDEEB /* Pods-HashTagApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8B7YLHTUEA;
+				INFOPLIST_FILE = HashTagApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KC.HashTagApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		53EABFD01E3CDA9900649275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF2C5A96D734EB840837E018 /* Pods-HashTagApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8B7YLHTUEA;
+				INFOPLIST_FILE = HashTagApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KC.HashTagApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53EABFB71E3CDA9900649275 /* Build configuration list for PBXProject "HashTagApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53EABFCC1E3CDA9900649275 /* Debug */,
+				53EABFCD1E3CDA9900649275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53EABFCE1E3CDA9900649275 /* Build configuration list for PBXNativeTarget "HashTagApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53EABFCF1E3CDA9900649275 /* Debug */,
+				53EABFD01E3CDA9900649275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 53EABFB41E3CDA9900649275 /* Project object */;
+}
