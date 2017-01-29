@@ -29,6 +29,9 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,27 +58,23 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         print ("GIDSignInUIDelegate (HTSignInViewController) - sign in failed with error \(error)")
     }
     
-    
-    
     func handleSignInNotification(_ notification:NSNotification) {
         if let user = notification.object as? FIRUser {
             self.signedIn(user)
         }
     }
     
-    
-    func signedIn(_ user : FIRUser?) {
-        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
-        AppState.sharedInstance.photoURL = user?.photoURL
-        AppState.sharedInstance.signedIn = true
-        //let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.SignedIn)
-        //NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
-        
-        performSegue(withIdentifier: Constants.Segues.SignInToMain, sender: nil)
-        
+    func signedIn(_ user : FIRUser!) {
+        weak var weakSelf:HTSignInViewController? = self
+        print ("weakself test - \(weakSelf)")
+        DispatchQueue.main.async {
+            AppState.signedIn(user)
+            if let nav = weakSelf?.navigationController {
+                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainVc") as! HTMainViewController
+                nav.pushViewController(secondViewController, animated: true)
+            }
+            //let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.SignedIn)
+            //NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
+        }
     }
-
-    
-    
-    
 }

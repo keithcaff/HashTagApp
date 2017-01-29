@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
 
 class HTMainViewController: UIViewController {
 
@@ -20,6 +21,23 @@ class HTMainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        do {
+            try
+                FIRAuth.auth()?.signOut()
+                AppState.signedOut()
+                if let nav = self.navigationController {
+                    nav.popToRootViewController(animated: true)// the root vc is the HTSignInViewController
+                }
+        }
+        catch  {
+            //TODO show some alert/error to the user
+            print ("signOutButtonTapped - sign out failed with \(sender)")
+        }
+    }
+    
+    
     
     /*
     // MARK: - Navigation

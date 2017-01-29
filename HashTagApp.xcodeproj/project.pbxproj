@@ -48,6 +48,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		443759511E3D39B000DEA26C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5334F9701E3D03390002FDEA /* AppState.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		443759521E3D39C200DEA26C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */,
+				53EABFC31E3CDA9900649275 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		443759531E3D39CA00DEA26C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */,
+				5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		443759541E3D39F200DEA26C /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5334F9711E3D03390002FDEA /* Constants.swift */,
+				53EABFBF1E3CDA9900649275 /* AppDelegate.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		53EABFB31E3CDA9900649275 = {
 			isa = PBXGroup;
 			children = (
@@ -69,16 +104,13 @@
 		53EABFBE1E3CDA9900649275 /* HashTagApp */ = {
 			isa = PBXGroup;
 			children = (
-				53EABFBF1E3CDA9900649275 /* AppDelegate.swift */,
-				53EABFC31E3CDA9900649275 /* Main.storyboard */,
+				443759541E3D39F200DEA26C /* Other */,
+				443759531E3D39CA00DEA26C /* Controller */,
+				443759521E3D39C200DEA26C /* View */,
+				443759511E3D39B000DEA26C /* Model */,
 				53EABFC61E3CDA9900649275 /* Assets.xcassets */,
 				53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */,
-				5334F9701E3D03390002FDEA /* AppState.swift */,
-				5334F9711E3D03390002FDEA /* Constants.swift */,
 				53EABFCB1E3CDA9900649275 /* Info.plist */,
-				5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */,
-				5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */,
-				5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */,
 			);
 			path = HashTagApp;
 			sourceTree = "<group>";
@@ -107,12 +139,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53EABFCE1E3CDA9900649275 /* Build configuration list for PBXNativeTarget "HashTagApp" */;
 			buildPhases = (
+				E358CE337228FC69F06BF9D1 /* 📦 Check Pods Manifest.lock */,
 				BDCB20E1829941B757BA7AFB /* [CP] Check Pods Manifest.lock */,
 				53EABFB81E3CDA9900649275 /* Sources */,
 				53EABFB91E3CDA9900649275 /* Frameworks */,
 				53EABFBA1E3CDA9900649275 /* Resources */,
 				C3D1EDDF2B7E504177B30060 /* [CP] Embed Pods Frameworks */,
 				AC92CFE9860B1548D6707493 /* [CP] Copy Pods Resources */,
+				26501F594F906F941E55038C /* 📦 Embed Pods Frameworks */,
+				E4D61FA4FD999FA408680A95 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,6 +208,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		26501F594F906F941E55038C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AC92CFE9860B1548D6707493 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +266,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E358CE337228FC69F06BF9D1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4D61FA4FD999FA408680A95 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
