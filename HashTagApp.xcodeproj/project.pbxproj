@@ -71,6 +71,7 @@
 		443759521E3D39C200DEA26C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				53EABFC61E3CDA9900649275 /* Assets.xcassets */,
 				5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */,
 				53EABFC31E3CDA9900649275 /* Main.storyboard */,
 			);
@@ -95,6 +96,13 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		44719BDD1E3FE78D009D1FCF /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
 		53EABFB31E3CDA9900649275 = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +124,13 @@
 		53EABFBE1E3CDA9900649275 /* HashTagApp */ = {
 			isa = PBXGroup;
 			children = (
+				53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */,
+				53EABFCB1E3CDA9900649275 /* Info.plist */,
+				44719BDD1E3FE78D009D1FCF /* Supporting */,
 				443759541E3D39F200DEA26C /* Other */,
 				443759531E3D39CA00DEA26C /* Controller */,
 				443759521E3D39C200DEA26C /* View */,
 				443759511E3D39B000DEA26C /* Model */,
-				53EABFC61E3CDA9900649275 /* Assets.xcassets */,
-				53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */,
-				53EABFCB1E3CDA9900649275 /* Info.plist */,
 			);
 			path = HashTagApp;
 			sourceTree = "<group>";

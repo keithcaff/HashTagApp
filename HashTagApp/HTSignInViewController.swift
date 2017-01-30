@@ -30,34 +30,26 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         weak var weakSelf = self
         let logInButton = TWTRLogInButton { (session, error) in
             if let unwrappedSession = session {
-//                let alert = UIAlertController(title: "Logged In",
-//                                              message: "User \(unwrappedSession.userName) has logged in",
-//                    preferredStyle: UIAlertControllerStyle.alert
-//                )
-//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
                 let credential = FIRTwitterAuthProvider.credential(withToken: unwrappedSession.authToken, secret: unwrappedSession.authTokenSecret)
-                
-                if let weakSelf = weakSelf {
-                    weakSelf.authenticateWithFirebase(credential)
-                }
+                    weakSelf?.authenticateWithFirebase(credential)
             }
             else {
-                NSLog("Login error: %@", error!.localizedDescription);
+                let alert = UIAlertController(title: "Twitter error",
+                                              message: "Login failed",
+                    preferredStyle: UIAlertControllerStyle.alert
+                )
+                weakSelf?.present(alert, animated: true, completion: nil)
+                NSLog("Twitter Login failed: %@", error!.localizedDescription);
             }
         }
-        
-        // TODO: Change where the log in button is positioned in your view
         logInButton.center = self.view.center
         self.view.addSubview(logInButton)
-        
     }
     
     
     func authenticateWithFirebase(_ credential:FIRAuthCredential) {
         weak var weakSelf = self
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            // ...
             if let error = error {
                 print ("HTSignInViewController - authenticateWithFirebase failed with error \(error)")
                 return
@@ -78,7 +70,6 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     /*
      // MARK: - Navigation

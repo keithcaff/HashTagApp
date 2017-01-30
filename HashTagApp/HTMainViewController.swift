@@ -10,11 +10,14 @@ import UIKit
 import GoogleSignIn
 import Firebase
 
-class HTMainViewController: UIViewController {
+class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,13 +35,29 @@ class HTMainViewController: UIViewController {
                 }
         }
         catch  {
-            //TODO show some alert/error to the user
+            let alert = UIAlertController(title: "Logout failed",
+                                          message: "Unable to logout",
+                                          preferredStyle: UIAlertControllerStyle.alert
+            )
+            self.present(alert, animated: true, completion: nil)
             print ("signOutButtonTapped - sign out failed with \(sender)")
         }
     }
     
+    // MARK: - Table view delegate methods:
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
     
     
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell();
+    }
     /*
     // MARK: - Navigation
 
