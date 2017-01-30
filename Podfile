@@ -7,6 +7,9 @@ target 'HashTagApp' do
 	pod 'GoogleSignIn'
 	pod 'Firebase/Auth'	
 	pod 'Firebase/Core'
+	pod 'Fabric'
+	pod 'TwitterKit'
+	pod 'TwitterCore'
 end
 
 

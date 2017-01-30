@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533021471E3FBE8900CF74FF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533021461E3FBE8900CF74FF /* Accounts.framework */; };
+		533021491E3FBE9A00CF74FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533021481E3FBE9A00CF74FF /* Social.framework */; };
+		5330214B1E3FBEFD00CF74FF /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5330214A1E3FBEFD00CF74FF /* SafariServices.framework */; };
+		5330214D1E3FBF2600CF74FF /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5330214C1E3FBF2600CF74FF /* Twitter.framework */; };
 		5334F96B1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */; };
 		5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */; };
 		5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */; };
@@ -21,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HashTagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		533021461E3FBE8900CF74FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		533021481E3FBE9A00CF74FF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5330214A1E3FBEFD00CF74FF /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		5330214C1E3FBF2600CF74FF /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HashTagLaunchScreen.storyboard; sourceTree = "<group>"; };
 		5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMainViewController.swift; sourceTree = "<group>"; };
 		5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTSignInViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5330214D1E3FBF2600CF74FF /* Twitter.framework in Frameworks */,
+				5330214B1E3FBEFD00CF74FF /* SafariServices.framework in Frameworks */,
+				533021491E3FBE9A00CF74FF /* Social.framework in Frameworks */,
+				533021471E3FBE8900CF74FF /* Accounts.framework in Frameworks */,
 				D681BCF62E81B947E36AEDBC /* Pods_HashTagApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +139,10 @@
 		E79CCE997CE6C50CB46A5B63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5330214C1E3FBF2600CF74FF /* Twitter.framework */,
+				5330214A1E3FBEFD00CF74FF /* SafariServices.framework */,
+				533021481E3FBE9A00CF74FF /* Social.framework */,
+				533021461E3FBE8900CF74FF /* Accounts.framework */,
 				0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */,
 			);
 			name = Frameworks;
@@ -139,7 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53EABFCE1E3CDA9900649275 /* Build configuration list for PBXNativeTarget "HashTagApp" */;
 			buildPhases = (
-				E358CE337228FC69F06BF9D1 /* 📦 Check Pods Manifest.lock */,
+				E358CE337228FC69F06BF9D1 /* [CP] Check Pods Manifest.lock */,
 				BDCB20E1829941B757BA7AFB /* [CP] Check Pods Manifest.lock */,
 				53EABFB81E3CDA9900649275 /* Sources */,
 				53EABFB91E3CDA9900649275 /* Frameworks */,
@@ -148,6 +164,7 @@
 				AC92CFE9860B1548D6707493 /* [CP] Copy Pods Resources */,
 				26501F594F906F941E55038C /* 📦 Embed Pods Frameworks */,
 				E4D61FA4FD999FA408680A95 /* 📦 Copy Pods Resources */,
+				53A2DF9B1E3FC2C3009C0EFA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -223,6 +240,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		53A2DF9B1E3FC2C3009C0EFA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 55249e1ce3f162c103e8bbad52bf555f4592ecbd e2c7177bea2c87fa1078cca8c16b80730d98b29ed1bdbebea1aad7952ad7a7b5";
+		};
 		AC92CFE9860B1548D6707493 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,14 +298,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E358CE337228FC69F06BF9D1 /* 📦 Check Pods Manifest.lock */ = {
+		E358CE337228FC69F06BF9D1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Gbb-a6-bt7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Gbb-a6-bt7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,18 +24,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avO-ag-GnD" customClass="GIDSignInButton">
-                                <rect key="frame" x="72" y="309" width="230" height="48"/>
+                                <rect key="frame" x="42" y="369.5" width="290" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="9Op-mQ-aFS"/>
-                                    <constraint firstAttribute="width" constant="230" id="lrF-xP-2Vc"/>
+                                    <constraint firstAttribute="width" constant="290" id="lrF-xP-2Vc"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.040853530169999999" green="0.37480330470000001" blue="0.99835759400000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="avO-ag-GnD" firstAttribute="centerX" secondItem="73T-Bk-0ZV" secondAttribute="centerXWithinMargins" id="KgQ-4k-Ku7"/>
-                            <constraint firstItem="avO-ag-GnD" firstAttribute="centerY" secondItem="73T-Bk-0ZV" secondAttribute="centerY" id="Mxs-lO-XeL"/>
+                            <constraint firstItem="avO-ag-GnD" firstAttribute="centerY" secondItem="73T-Bk-0ZV" secondAttribute="centerY" constant="60" id="Mxs-lO-XeL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JQ3-1d-83G"/>
@@ -87,7 +87,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gbb-a6-bt7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="TCm-fg-1tt">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" misplaced="YES" id="TCm-fg-1tt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
