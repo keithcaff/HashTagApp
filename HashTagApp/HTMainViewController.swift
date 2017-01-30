@@ -9,15 +9,19 @@
 import UIKit
 import GoogleSignIn
 import Firebase
+import TwitterKit
 
-class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +62,17 @@ class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDa
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell();
     }
+    
+    // MARK: UISearchBarDelegate methods
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchText.characters.count < 2) {
+            return
+        }
+        print("HTMainViewController searchBar - text did change \(searchText)")
+        self.searchTwitter()
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -67,5 +82,12 @@ class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func searchTwitter() {
+        //TODO: use alomofire and create a search twitter api class one instance. 
+        /*http://stackoverflow.com/questions/38001044/how-to-get-twitter-access-token-with-alamofire-swift-2-2*/
+    }
+    
 
 }
