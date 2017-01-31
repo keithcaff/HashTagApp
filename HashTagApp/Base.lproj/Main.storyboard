@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eTe-gZ-EPI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eTe-gZ-EPI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -84,29 +84,27 @@
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8zI-NC-bDI">
-                                <rect key="frame" x="0.0" y="44" width="375" height="565"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjM-6D-sBM">
+                                <rect key="frame" x="0.0" y="44" width="375" height="578"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </tableView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hjn-lE-wIg" secondAttribute="trailing" id="22k-Pz-wDz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="L67-TJ-1XV" secondAttribute="bottom" constant="14" id="74M-PT-KSE"/>
                             <constraint firstItem="hjn-lE-wIg" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leading" id="Es4-Lc-7F5"/>
-                            <constraint firstItem="L67-TJ-1XV" firstAttribute="top" secondItem="8zI-NC-bDI" secondAttribute="bottom" constant="14" id="MR5-fr-C89"/>
-                            <constraint firstAttribute="trailing" secondItem="8zI-NC-bDI" secondAttribute="trailing" id="PYb-fH-gj0"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="8zI-NC-bDI" secondAttribute="bottom" constant="58" id="SOk-Fl-02H"/>
-                            <constraint firstItem="8zI-NC-bDI" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leading" id="TPP-fi-F3s"/>
+                            <constraint firstAttribute="trailing" secondItem="kjM-6D-sBM" secondAttribute="trailing" id="POw-BV-Jft"/>
                             <constraint firstAttribute="topMargin" secondItem="hjn-lE-wIg" secondAttribute="top" id="bXy-dv-Oxz"/>
+                            <constraint firstItem="L67-TJ-1XV" firstAttribute="top" secondItem="kjM-6D-sBM" secondAttribute="bottom" constant="1" id="ky3-A2-Q39"/>
                             <constraint firstItem="L67-TJ-1XV" firstAttribute="centerX" secondItem="xVC-5s-eWN" secondAttribute="centerX" id="ltQ-lg-dUj"/>
-                            <constraint firstItem="8zI-NC-bDI" firstAttribute="top" secondItem="hjn-lE-wIg" secondAttribute="bottom" id="v1Y-ml-G55"/>
+                            <constraint firstItem="kjM-6D-sBM" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leading" id="snw-hY-bYE"/>
+                            <constraint firstItem="kjM-6D-sBM" firstAttribute="top" secondItem="hjn-lE-wIg" secondAttribute="bottom" id="tlt-3L-o63"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="hjn-lE-wIg" id="AwN-9o-loz"/>
-                        <outlet property="tableView" destination="8zI-NC-bDI" id="4Df-Cc-Fdj"/>
+                        <outlet property="twitterView" destination="kjM-6D-sBM" id="CO3-hD-3u4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tc3-my-Lfa" userLabel="First Responder" sceneMemberID="firstResponder"/>

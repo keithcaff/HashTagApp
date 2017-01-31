@@ -12,16 +12,70 @@ import Firebase
 import TwitterKit
 
 
-class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class HTMainViewController: UIViewController, UISearchBarDelegate {
 
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var twitterView: UIView!
+    var searchTwitterViewController:HTSearchTwitterViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         searchBar.delegate = self
+        searchTwitterViewController = HTSearchTwitterViewController()
+        self.setUpTwitterView()
+    }
+    
+    func setUpTwitterView() {
+        twitterView.translatesAutoresizingMaskIntoConstraints = false;
+        if let searchView =  searchTwitterViewController?.view {
+            searchTwitterViewController?.willMove(toParentViewController: self)
+            self.addChildViewController(searchTwitterViewController!)
+            twitterView.addSubview(searchView)
+            searchTwitterViewController?.didMove(toParentViewController: self)
+            searchView.translatesAutoresizingMaskIntoConstraints = false;
+            let topConstraint = NSLayoutConstraint(
+                item: searchView,
+                attribute: .top,
+                relatedBy: .equal,
+                toItem: twitterView,
+                attribute: .top,
+                multiplier: 1,
+                constant: 0)
+            twitterView.addConstraint(topConstraint)
+            
+            let bottomConstraint = NSLayoutConstraint(
+                item: searchView,
+                attribute: .bottom,
+                relatedBy: .equal,
+                toItem: twitterView,
+                attribute: .bottom,
+                multiplier: 1,
+                constant: 0)
+            twitterView.addConstraint(bottomConstraint)
+            
+            
+            let leadingConstraint = NSLayoutConstraint(
+                item: searchView,
+                attribute: .leading,
+                relatedBy: .equal,
+                toItem: twitterView,
+                attribute: .leading,
+                multiplier: 1,
+                constant: 0)
+            twitterView.addConstraint(leadingConstraint)
+            
+            
+            let trailingConstraint = NSLayoutConstraint(
+                item: searchView,
+                attribute: .trailing,
+                relatedBy: .equal,
+                toItem: twitterView,
+                attribute: .trailing,
+                multiplier: 1,
+                constant: 0)
+            twitterView.addConstraint(trailingConstraint)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,21 +102,6 @@ class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    // MARK: - Table view delegate methods:
-    @available(iOS 2.0, *)
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    
-    @available(iOS 2.0, *)
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell();
-    }
-    
     // MARK: UISearchBarDelegate methods
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchText.characters.count < 2) {
@@ -86,6 +125,8 @@ class HTMainViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func searchTwitter() {
         //TODO: use alomofire and create a search twitter api class one instance. 
+        
+        /*https://docs.fabric.io/apple/twitter/show-timelines.html#search-timeline */
         /*http://stackoverflow.com/questions/38001044/how-to-get-twitter-access-token-with-alamofire-swift-2-2*/
     }
     

@@ -20,6 +20,7 @@
 		53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC31E3CDA9900649275 /* Main.storyboard */; };
 		53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC61E3CDA9900649275 /* Assets.xcassets */; };
 		53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */; };
+		53F47B501E40C5850034B7A3 /* HTSearchTwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F47B4F1E40C5850034B7A3 /* HTSearchTwitterViewController.swift */; };
 		D681BCF62E81B947E36AEDBC /* Pods_HashTagApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		53EABFC61E3CDA9900649275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53EABFCB1E3CDA9900649275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		53F47B4F1E40C5850034B7A3 /* HTSearchTwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTSearchTwitterViewController.swift; sourceTree = "<group>"; };
 		FF2C5A96D734EB840837E018 /* Pods-HashTagApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HashTagApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp.release.xcconfig"; sourceTree = "<group>"; };
 		FF2D00CC37D2968C627BDEEB /* Pods-HashTagApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HashTagApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 			children = (
 				5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */,
 				5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */,
+				53F47B4F1E40C5850034B7A3 /* HTSearchTwitterViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53F47B501E40C5850034B7A3 /* HTSearchTwitterViewController.swift in Sources */,
 				5334F9731E3D03390002FDEA /* Constants.swift in Sources */,
 				5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */,
 				5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */,
