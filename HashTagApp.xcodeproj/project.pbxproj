@@ -21,6 +21,7 @@
 		53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC61E3CDA9900649275 /* Assets.xcassets */; };
 		53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */; };
 		53F47B501E40C5850034B7A3 /* HTSearchTwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F47B4F1E40C5850034B7A3 /* HTSearchTwitterViewController.swift */; };
+		53FAFFA01E43A84E0096AFF2 /* HTTwitterAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FAFF9F1E43A84E0096AFF2 /* HTTwitterAPIManager.swift */; };
 		D681BCF62E81B947E36AEDBC /* Pods_HashTagApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		53EABFCB1E3CDA9900649275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53F47B4F1E40C5850034B7A3 /* HTSearchTwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTSearchTwitterViewController.swift; sourceTree = "<group>"; };
+		53FAFF9F1E43A84E0096AFF2 /* HTTwitterAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTwitterAPIManager.swift; sourceTree = "<group>"; };
 		FF2C5A96D734EB840837E018 /* Pods-HashTagApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HashTagApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp.release.xcconfig"; sourceTree = "<group>"; };
 		FF2D00CC37D2968C627BDEEB /* Pods-HashTagApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HashTagApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HashTagApp/Pods-HashTagApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 		53EABFBE1E3CDA9900649275 /* HashTagApp */ = {
 			isa = PBXGroup;
 			children = (
+				53FAFF9E1E43A7EE0096AFF2 /* Networking */,
 				53EABFD11E3CDAD500649275 /* GoogleService-Info.plist */,
 				53EABFCB1E3CDA9900649275 /* Info.plist */,
 				44719BDD1E3FE78D009D1FCF /* Supporting */,
@@ -136,6 +139,14 @@
 				443759511E3D39B000DEA26C /* Model */,
 			);
 			path = HashTagApp;
+			sourceTree = "<group>";
+		};
+		53FAFF9E1E43A7EE0096AFF2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				53FAFF9F1E43A84E0096AFF2 /* HTTwitterAPIManager.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		7DC14EC67AC1B9C0D46F3FDE /* Pods */ = {
@@ -321,7 +332,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E4D61FA4FD999FA408680A95 /* 📦 Copy Pods Resources */ = {
@@ -346,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53FAFFA01E43A84E0096AFF2 /* HTTwitterAPIManager.swift in Sources */,
 				53F47B501E40C5850034B7A3 /* HTSearchTwitterViewController.swift in Sources */,
 				5334F9731E3D03390002FDEA /* Constants.swift in Sources */,
 				5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */,
