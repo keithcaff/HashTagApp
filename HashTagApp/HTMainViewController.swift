@@ -14,7 +14,7 @@ import TwitterKit
 
 class HTMainViewController: UIViewController, UISearchBarDelegate {
 
-    
+    var searchTimer:Timer?
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var twitterView: UIView!
     var searchTwitterViewController:HTSearchTwitterViewController?
@@ -83,6 +83,8 @@ class HTMainViewController: UIViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func signOutButtonTapped(_ sender: Any) {
         do {
             try
@@ -102,14 +104,30 @@ class HTMainViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    
+    func performSearch() {
+        if let searchTimer = self.searchTimer {
+            let query:String = searchTimer.userInfo as! String
+            HTTwitterAPIManager.sharedInstance.searchTwitter(query: query)
+        }
+    }
+
     // MARK: UISearchBarDelegate methods
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if (searchText.characters.count < 2) {
+        
+        let text = searchText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        if (text.characters.count < 2) {
             return
         }
-        print("HTMainViewController searchBar - text did change \(searchText)")
-        self.searchTwitter()
+        //weakSelf
+        DispatchQueue.main.async { [unowned self] in
+            if let searchTimer = self.searchTimer {
+                searchTimer.invalidate()
+            }
+            self.searchTimer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: #selector(self.performSearch), userInfo: text, repeats:false)
+        }
     }
+    
     
     
     /*
@@ -122,13 +140,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate {
     }
     */
     
-    
-    func searchTwitter() {
-        //TODO: use alomofire and create a search twitter api class one instance. 
-        
-        /*https://docs.fabric.io/apple/twitter/show-timelines.html#search-timeline */
-        /*http://stackoverflow.com/questions/38001044/how-to-get-twitter-access-token-with-alamofire-swift-2-2*/
-    }
     
 
 }

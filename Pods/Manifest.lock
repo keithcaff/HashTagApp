@@ -49,6 +49,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.8)
   - GTMSessionFetcher/Full (1.1.8):
     - GTMSessionFetcher/Core (= 1.1.8)
+  - SwiftyJSON (3.1.4)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.0):
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - GoogleSignIn
+  - SwiftyJSON
   - TwitterCore
   - TwitterKit
 
@@ -78,9 +80,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: f7b0a1adcb800f6446ff0ef70164797376522ff3
 
-PODFILE CHECKSUM: b3e3dd5392c7b0e45e5cac278a059607a5485faf
+PODFILE CHECKSUM: e15f519e6c5fd0adbcb7cd7cca86a47c17a54ca9
 
 COCOAPODS: 1.2.0

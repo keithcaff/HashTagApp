@@ -5,8 +5,9 @@
 //  Created by Keith Caffrey on 02/02/2017.
 //  Copyright © 2017 Keith Caffrey. All rights reserved.
 //
-
 import Alamofire
+import TwitterKit
+import SwiftyJSON
 
 public class HTTwitterAPIManager {
     
@@ -22,21 +23,28 @@ public class HTTwitterAPIManager {
     // Can't init is singleton
     private init() { }
     
-    func searchTwitter(query:String) {
-        //https://grokswift.com/rest-with-alamofire-swiftyjson/
-        //https://grokswift.com/router/
-        //https://grokswift.com/how-alamofire-router/
-        //https://dev.twitter.com/rest/public/search
-        //https://dev.twitter.com/rest/reference/get/search/tweets
-        //https://github.com/Alamofire/Alamofire/blob/master/Documentation/Alamofire%204.0%20Migration%20Guide.md -> using alamofire 4
-        var params: [String:Any]
-        params = ["query": "query"]
-
-        Alamofire.request(HTTwitterAPIManager.twitterSearchAPIURL, method: .get, parameters:params, encoding: JSONEncoding.default)
-            .responseJSON { response in
-                // ...
+    public func searchTwitter(query:String!) {
+        print ("kctest called - twitterRequestTest")
+        let params = ["q": query,"result_type":"popular"]
+        var clientError : NSError?
+        let userID = Twitter.sharedInstance().sessionStore.session()?.userID
+        let client = TWTRAPIClient(userID: userID)
+        
+        let request = client.urlRequest(withMethod: "GET", url: HTTwitterAPIManager.twitterSearchAPIURL, parameters: params, error: &clientError)
+        
+        client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+            if connectionError != nil {
+                print("Error: \(connectionError)")
+            }
+            
+            guard let data = data else {
+                print("no data to be parsed")
+                return
+            }
+            let json = JSON(data)
+            print("json: \(json)")
+            //fire off notification that results have been retrieved now
         }
-
     }
     
 }

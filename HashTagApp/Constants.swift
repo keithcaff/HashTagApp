@@ -13,16 +13,28 @@ extension Notification.Name {
 }
 
 struct Constants {
+    
+    struct TwitterAPI {
+        static let oAuthConsumerKeyHeaderKey = "oauth_consumer_key"
+        static let oAuthNOnceHeaderKey = "oauth_nonce"
+        static let oAuthSignatureHeaderKey = "oauth_signature"
+        static let oAuthSignatureMethodHeaderKey = "oauth_signature_method"
+        static let oAuthTimestampHeaderKey = "oauth_timestamp"
+        static let oAuthTokenHeaderKey = "oauth_token"
+        static let oAuthVersionHeaderKey = "oauth_version"
+        static let oAuthVersion = "1.0"
+        static let signatureMethod = "HMAC-SHA1"
+    }
 
-  struct Segues {
-    static let SignInToMain = "SignInToMain"
-    static let MainToSignIn = "MainToSignIn"
-  }
-
-  struct MessageFields {
-    static let name = "name"
-    static let text = "text"
-    static let photoURL = "photoURL"
-    static let imageURL = "imageURL"
-  }
+    struct Segues {
+        static let SignInToMain = "SignInToMain"
+        static let MainToSignIn = "MainToSignIn"
+    }
+    
+    struct MessageFields {
+        static let name = "name"
+        static let text = "text"
+        static let photoURL = "photoURL"
+        static let imageURL = "imageURL"
+    }
 }
