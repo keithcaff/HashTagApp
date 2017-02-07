@@ -27,23 +27,23 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         else {
             GIDSignIn.sharedInstance().signInSilently()
         }
-        weak var weakSelf = self
-        let logInButton = TWTRLogInButton { (session, error) in
-            if let unwrappedSession = session {
-                let credential = FIRTwitterAuthProvider.credential(withToken: unwrappedSession.authToken, secret: unwrappedSession.authTokenSecret)
-                    weakSelf?.authenticateWithFirebase(credential)
-            }
-            else {
-                let alert = UIAlertController(title: "Twitter error",
-                                              message: "Login failed",
-                    preferredStyle: UIAlertControllerStyle.alert
-                )
-                weakSelf?.present(alert, animated: true, completion: nil)
-                NSLog("Twitter Login failed: %@", error!.localizedDescription);
-            }
-        }
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
+//        weak var weakSelf = self
+//        let logInButton = TWTRLogInButton { (session, error) in
+//            if let unwrappedSession = session {
+//                let credential = FIRTwitterAuthProvider.credential(withToken: unwrappedSession.authToken, secret: unwrappedSession.authTokenSecret)
+//                    weakSelf?.authenticateWithFirebase(credential)
+//            }
+//            else {
+//                let alert = UIAlertController(title: "Twitter error",
+//                                              message: "Login failed",
+//                    preferredStyle: UIAlertControllerStyle.alert
+//                )
+//                weakSelf?.present(alert, animated: true, completion: nil)
+//                NSLog("Twitter Login failed: %@", error!.localizedDescription);
+//            }
+//        }
+//        logInButton.center = self.view.center
+//        self.view.addSubview(logInButton)
     }
     
     

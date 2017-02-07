@@ -24,7 +24,11 @@ struct Constants {
         static let oAuthTokenHeaderKey = "oauth_token"
         static let oAuthVersionHeaderKey = "oauth_version"
         static let oAuthVersion = "1.0"
+        static let baseUrl = "https://api.twitter.com/1.1/"
+        static let searchPath = "search/tweets.json"
         static let signatureMethod = "HMAC-SHA1"
+        static let queryKey = "q"
+        static let resultTypeKey = "result_type"
         static let statusesKey = "statuses"
     }
 
