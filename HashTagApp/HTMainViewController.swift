@@ -21,6 +21,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleTweetsRetrievedNotification(_ :)), name: .tweetsRetrieved, object: nil)
         searchBar.delegate = self
         searchTwitterViewController = HTSearchTwitterViewController()
         self.setUpTwitterView()
@@ -117,6 +118,9 @@ class HTMainViewController: UIViewController, UISearchBarDelegate {
         
         let text = searchText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if (text.characters.count < 2) {
+            if let searchTimer = self.searchTimer {
+                searchTimer.invalidate()
+            }
             return
         }
         //weakSelf
@@ -127,7 +131,15 @@ class HTMainViewController: UIViewController, UISearchBarDelegate {
             self.searchTimer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: #selector(self.performSearch), userInfo: text, repeats:false)
         }
     }
-    
+    // MARK: - Notifications
+    public func handleTweetsRetrievedNotification(_ notification:NSNotification) {
+        //reload the table view here.....
+        if let tweets = notification.object as? [TWTRTweet] {
+            //reload the table view here.....
+            print("got \(tweets.count) tweets from twitter!");
+        }
+
+    }
     
     
     /*

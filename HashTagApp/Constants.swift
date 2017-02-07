@@ -9,7 +9,8 @@
 import NotificationCenter
 
 extension Notification.Name {
-    static let firebaseSignInSuccess = Notification.Name("notification.firebase.signIn.success")
+    static let firebaseSignInSuccess = Notification.Name("notification.ht.firebase.signIn.success")
+    static let tweetsRetrieved = Notification.Name("notification.ht.twitter.tweets.retrieved")
 }
 
 struct Constants {
@@ -24,6 +25,7 @@ struct Constants {
         static let oAuthVersionHeaderKey = "oauth_version"
         static let oAuthVersion = "1.0"
         static let signatureMethod = "HMAC-SHA1"
+        static let statusesKey = "statuses"
     }
 
     struct Segues {

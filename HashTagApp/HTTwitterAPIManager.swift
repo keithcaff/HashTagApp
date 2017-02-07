@@ -24,7 +24,6 @@ public class HTTwitterAPIManager {
     private init() { }
     
     public func searchTwitter(query:String!) {
-        print ("kctest called - twitterRequestTest")
         let params = ["q": query,"result_type":"popular"]
         var clientError : NSError?
         let userID = Twitter.sharedInstance().sessionStore.session()?.userID
@@ -42,8 +41,9 @@ public class HTTwitterAPIManager {
                 return
             }
             let json = JSON(data)
-            print("json: \(json)")
-            //fire off notification that results have been retrieved now
+            let jsonArray = json[Constants.TwitterAPI.statusesKey].arrayObject
+            let tweets = TWTRTweet.tweets(withJSONArray:jsonArray) as! [TWTRTweet]
+            NotificationCenter.default.post(name:.tweetsRetrieved, object: tweets)
         }
     }
     
