@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eTe-gZ-EPI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eTe-gZ-EPI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L67-TJ-1XV">
-                                <rect key="frame" x="148" y="623" width="79" height="30"/>
+                                <rect key="frame" x="148" y="624" width="79" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hUb-cD-E7u"/>
                                     <constraint firstAttribute="width" constant="79" id="hX2-N7-hTB"/>
@@ -84,27 +84,28 @@
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjM-6D-sBM">
-                                <rect key="frame" x="0.0" y="44" width="375" height="578"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pnU-aP-nZs">
+                                <rect key="frame" x="0.0" y="44" width="375" height="571"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hjn-lE-wIg" secondAttribute="trailing" id="22k-Pz-wDz"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="L67-TJ-1XV" secondAttribute="bottom" constant="14" id="74M-PT-KSE"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="L67-TJ-1XV" secondAttribute="bottom" constant="13" id="74M-PT-KSE"/>
+                            <constraint firstItem="pnU-aP-nZs" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leadingMargin" constant="-16" id="BYX-8y-zja"/>
                             <constraint firstItem="hjn-lE-wIg" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leading" id="Es4-Lc-7F5"/>
-                            <constraint firstAttribute="trailing" secondItem="kjM-6D-sBM" secondAttribute="trailing" id="POw-BV-Jft"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pnU-aP-nZs" secondAttribute="trailing" constant="-16" id="KBv-oG-zJK"/>
+                            <constraint firstItem="pnU-aP-nZs" firstAttribute="top" secondItem="hjn-lE-wIg" secondAttribute="bottom" id="alH-Ab-qmz"/>
                             <constraint firstAttribute="topMargin" secondItem="hjn-lE-wIg" secondAttribute="top" id="bXy-dv-Oxz"/>
-                            <constraint firstItem="L67-TJ-1XV" firstAttribute="top" secondItem="kjM-6D-sBM" secondAttribute="bottom" constant="1" id="ky3-A2-Q39"/>
+                            <constraint firstItem="L67-TJ-1XV" firstAttribute="top" secondItem="pnU-aP-nZs" secondAttribute="bottom" constant="9" id="h7h-MY-7Lu"/>
                             <constraint firstItem="L67-TJ-1XV" firstAttribute="centerX" secondItem="xVC-5s-eWN" secondAttribute="centerX" id="ltQ-lg-dUj"/>
-                            <constraint firstItem="kjM-6D-sBM" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leading" id="snw-hY-bYE"/>
-                            <constraint firstItem="kjM-6D-sBM" firstAttribute="top" secondItem="hjn-lE-wIg" secondAttribute="bottom" id="tlt-3L-o63"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="hjn-lE-wIg" id="AwN-9o-loz"/>
-                        <outlet property="twitterView" destination="kjM-6D-sBM" id="CO3-hD-3u4"/>
+                        <outlet property="tableView" destination="pnU-aP-nZs" id="wg2-qV-q5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tc3-my-Lfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,7 +117,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eTe-gZ-EPI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zNf-KI-COe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zNf-KI-COe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

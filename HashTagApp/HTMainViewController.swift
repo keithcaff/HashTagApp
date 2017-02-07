@@ -12,73 +12,28 @@ import Firebase
 import TwitterKit
 
 
-class HTMainViewController: UIViewController, UISearchBarDelegate {
+class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     var searchTimer:Timer?
+    var datasource:[Any] = [Any]()
+    static let tweetCellIdentifer = "tweetCell"
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var twitterView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     var searchTwitterViewController:HTSearchTwitterViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleTweetsRetrievedNotification(_ :)), name: .tweetsRetrieved, object: nil)
         searchBar.delegate = self
+        tableView.delegate = self;
+        tableView.dataSource = self;
         searchTwitterViewController = HTSearchTwitterViewController()
-        self.setUpTwitterView()
+        tableView.register(TWTRTweetTableViewCell.self, forCellReuseIdentifier:HTMainViewController.tweetCellIdentifer)
+        tableView.estimatedRowHeight = 150
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.allowsSelection = false
     }
     
-    func setUpTwitterView() {
-        twitterView.translatesAutoresizingMaskIntoConstraints = false;
-        if let searchView =  searchTwitterViewController?.view {
-            searchTwitterViewController?.willMove(toParentViewController: self)
-            self.addChildViewController(searchTwitterViewController!)
-            twitterView.addSubview(searchView)
-            searchTwitterViewController?.didMove(toParentViewController: self)
-            searchView.translatesAutoresizingMaskIntoConstraints = false;
-            let topConstraint = NSLayoutConstraint(
-                item: searchView,
-                attribute: .top,
-                relatedBy: .equal,
-                toItem: twitterView,
-                attribute: .top,
-                multiplier: 1,
-                constant: 0)
-            twitterView.addConstraint(topConstraint)
-            
-            let bottomConstraint = NSLayoutConstraint(
-                item: searchView,
-                attribute: .bottom,
-                relatedBy: .equal,
-                toItem: twitterView,
-                attribute: .bottom,
-                multiplier: 1,
-                constant: 0)
-            twitterView.addConstraint(bottomConstraint)
-            
-            
-            let leadingConstraint = NSLayoutConstraint(
-                item: searchView,
-                attribute: .leading,
-                relatedBy: .equal,
-                toItem: twitterView,
-                attribute: .leading,
-                multiplier: 1,
-                constant: 0)
-            twitterView.addConstraint(leadingConstraint)
-            
-            
-            let trailingConstraint = NSLayoutConstraint(
-                item: searchView,
-                attribute: .trailing,
-                relatedBy: .equal,
-                toItem: twitterView,
-                attribute: .trailing,
-                multiplier: 1,
-                constant: 0)
-            twitterView.addConstraint(trailingConstraint)
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -134,11 +89,41 @@ class HTMainViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Notifications
     public func handleTweetsRetrievedNotification(_ notification:NSNotification) {
         //reload the table view here.....
-        if let tweets = notification.object as? [TWTRTweet] {
-            //reload the table view here.....
-            print("got \(tweets.count) tweets from twitter!");
+        DispatchQueue.main.async { [unowned self] in
+            if let tweets = notification.object as? [Any] {
+                self.datasource = tweets
+                self.tableView.reloadData()
+                print("got \(tweets.count) tweets from twitter!");
+            }
         }
 
+    }
+    
+    
+    // MARK: - Table view delegate methods
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datasource.count
+    }
+    
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell = UITableViewCell()
+        let tweet:TWTRTweet = datasource[indexPath.row] as! TWTRTweet
+        let tweetCell:TWTRTweetTableViewCell! = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.tweetCellIdentifer) as! TWTRTweetTableViewCell
+        tweetCell.configure(with: tweet)
+        //tweetCell.tweetView.delegate = self not required just yet.
+        cell = tweetCell;
+        
+        //CGFloat height  = TWTRTweetTableViewCell.height(for: tweet, style: .regular, width: tableView.frame.width, showingActions: false)
+        
+        return cell
+    }
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
     }
     
     
