@@ -10,7 +10,7 @@ import UIKit
 import GoogleSignIn
 import Firebase
 import TwitterKit
-
+import InstagramKit
 
 class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +18,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     var datasource:[Any] = [Any]()
     static let tweetCellIdentifer = "tweetCell"
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var searchTwitterViewController:HTSearchTwitterViewController?
     
@@ -34,12 +35,26 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.allowsSelection = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let nav = self.navigationController {
+            nav.isNavigationBarHidden = true
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Actions
     
+    @IBAction func instagramButtonTapped(_ sender: Any) {
+        if let nav = self.navigationController {
+            let instagramLoginVC = self.storyboard?.instantiateViewController(withIdentifier: "instagramLoginVC") as! HTInstagramLoginViewController
+            nav.pushViewController(instagramLoginVC, animated: true)
+        }
+    }
     
     @IBAction func signOutButtonTapped(_ sender: Any) {
         do {
@@ -114,10 +129,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         let tweet:TWTRTweet = datasource[indexPath.row] as! TWTRTweet
         let tweetCell:TWTRTweetTableViewCell! = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.tweetCellIdentifer) as! TWTRTweetTableViewCell
         tweetCell.configure(with: tweet)
-        //tweetCell.tweetView.delegate = self not required just yet.
         cell = tweetCell;
-        
-        //CGFloat height  = TWTRTweetTableViewCell.height(for: tweet, style: .regular, width: tableView.frame.width, showingActions: false)
         
         return cell
     }

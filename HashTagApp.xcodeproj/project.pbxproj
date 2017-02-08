@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44799ACF1E4BB66F00988329 /* HTInstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */; };
 		533021471E3FBE8900CF74FF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533021461E3FBE8900CF74FF /* Accounts.framework */; };
 		533021491E3FBE9A00CF74FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533021481E3FBE9A00CF74FF /* Social.framework */; };
 		5330214B1E3FBEFD00CF74FF /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5330214A1E3FBEFD00CF74FF /* SafariServices.framework */; };
@@ -27,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HashTagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44799ACD1E4BAFA400988329 /* HashTagApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HashTagApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTInstagramLoginViewController.swift; sourceTree = "<group>"; };
 		533021461E3FBE8900CF74FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		533021481E3FBE9A00CF74FF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5330214A1E3FBEFD00CF74FF /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -88,6 +91,7 @@
 				5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */,
 				5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */,
 				53F47B4F1E40C5850034B7A3 /* HTSearchTwitterViewController.swift */,
+				44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -104,6 +108,7 @@
 		44719BDD1E3FE78D009D1FCF /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				44799ACD1E4BAFA400988329 /* HashTagApp-Bridging-Header.h */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53FAFFA01E43A84E0096AFF2 /* HTTwitterAPIManager.swift in Sources */,
+				44799ACF1E4BB66F00988329 /* HTInstagramLoginViewController.swift in Sources */,
 				53F47B501E40C5850034B7A3 /* HTSearchTwitterViewController.swift in Sources */,
 				5334F9731E3D03390002FDEA /* Constants.swift in Sources */,
 				5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */,

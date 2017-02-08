@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '19407030CEEAD943658A1C497505EE62'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = 'CE89033960EF5D490E2548ABE897E4EB'
+               BlueprintName = 'InstagramKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'InstagramKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -31,6 +31,11 @@ struct Constants {
         static let resultTypeKey = "result_type"
         static let statusesKey = "statuses"
     }
+    
+    struct InstagramAPI {
+        static let clientId = "0b1d776027f946bf9ef445e6e95e431c"
+        
+    }
 
     struct Segues {
         static let SignInToMain = "SignInToMain"

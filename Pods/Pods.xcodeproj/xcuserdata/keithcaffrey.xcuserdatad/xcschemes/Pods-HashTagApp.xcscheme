@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "58EB981E1F319697442C72BFC148C92E"
+               BlueprintIdentifier = "64B6F0982A39C74A4DA7F8BA0F4CE42E"
                BuildableName = "Pods_HashTagApp.framework"
                BlueprintName = "Pods-HashTagApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "58EB981E1F319697442C72BFC148C92E"
+            BlueprintIdentifier = "64B6F0982A39C74A4DA7F8BA0F4CE42E"
             BuildableName = "Pods_HashTagApp.framework"
             BlueprintName = "Pods-HashTagApp"
             ReferencedContainer = "container:Pods.xcodeproj">

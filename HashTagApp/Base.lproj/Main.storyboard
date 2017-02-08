@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eTe-gZ-EPI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eTe-gZ-EPI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -85,10 +85,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pnU-aP-nZs">
-                                <rect key="frame" x="0.0" y="44" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="500"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-wV-nlq">
+                                <rect key="frame" x="99" y="586" width="177" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1Qw-Yx-AjA"/>
+                                    <constraint firstAttribute="width" constant="177" id="7oV-LP-cft"/>
+                                </constraints>
+                                <state key="normal" title="Connect Instagram"/>
+                                <connections>
+                                    <action selector="instagramButtonTapped:" destination="31s-S4-Plx" eventType="touchUpInside" id="H0S-xC-x17"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -99,11 +110,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="pnU-aP-nZs" secondAttribute="trailing" constant="-16" id="KBv-oG-zJK"/>
                             <constraint firstItem="pnU-aP-nZs" firstAttribute="top" secondItem="hjn-lE-wIg" secondAttribute="bottom" id="alH-Ab-qmz"/>
                             <constraint firstAttribute="topMargin" secondItem="hjn-lE-wIg" secondAttribute="top" id="bXy-dv-Oxz"/>
-                            <constraint firstItem="L67-TJ-1XV" firstAttribute="top" secondItem="pnU-aP-nZs" secondAttribute="bottom" constant="9" id="h7h-MY-7Lu"/>
+                            <constraint firstItem="Rgz-wV-nlq" firstAttribute="bottom" secondItem="L67-TJ-1XV" secondAttribute="bottom" constant="-38" id="cOd-Ms-JWF"/>
+                            <constraint firstItem="L67-TJ-1XV" firstAttribute="top" secondItem="pnU-aP-nZs" secondAttribute="bottom" constant="80" id="h7h-MY-7Lu"/>
+                            <constraint firstItem="Rgz-wV-nlq" firstAttribute="centerX" secondItem="xVC-5s-eWN" secondAttribute="centerX" id="ijA-6Q-FCd"/>
                             <constraint firstItem="L67-TJ-1XV" firstAttribute="centerX" secondItem="xVC-5s-eWN" secondAttribute="centerX" id="ltQ-lg-dUj"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="instagramButton" destination="Rgz-wV-nlq" id="jCz-SC-Zwn"/>
                         <outlet property="searchBar" destination="hjn-lE-wIg" id="AwN-9o-loz"/>
                         <outlet property="tableView" destination="pnU-aP-nZs" id="wg2-qV-q5t"/>
                     </connections>
@@ -112,12 +126,45 @@
             </objects>
             <point key="canvasLocation" x="3695.1999999999998" y="-25.637181409295355"/>
         </scene>
+        <!--Instagram Login View Controller-->
+        <scene sceneID="q4Z-Z2-S2J">
+            <objects>
+                <viewController storyboardIdentifier="instagramLoginVC" id="Lsw-dp-pJU" customClass="HTInstagramLoginViewController" customModule="HashTagApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="201-i2-mnt"/>
+                        <viewControllerLayoutGuide type="bottom" id="iNQ-YV-OlL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BcU-fS-i1Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awb-2X-zXD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="awb-2X-zXD" firstAttribute="leading" secondItem="BcU-fS-i1Y" secondAttribute="leading" id="JFZ-ZT-eOI"/>
+                            <constraint firstItem="iNQ-YV-OlL" firstAttribute="top" secondItem="awb-2X-zXD" secondAttribute="bottom" id="UDW-0Q-Bbe"/>
+                            <constraint firstItem="awb-2X-zXD" firstAttribute="top" secondItem="BcU-fS-i1Y" secondAttribute="top" id="drn-J6-kIW"/>
+                            <constraint firstAttribute="trailing" secondItem="awb-2X-zXD" secondAttribute="trailing" id="kFr-3o-nsX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="awb-2X-zXD" id="jU2-zr-1bF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8RF-ah-2FH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4669.6000000000004" y="-16.641679160419791"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="A3g-Fm-L8F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eTe-gZ-EPI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zNf-KI-COe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zNf-KI-COe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

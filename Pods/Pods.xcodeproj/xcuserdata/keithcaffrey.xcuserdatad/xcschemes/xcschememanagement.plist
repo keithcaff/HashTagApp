@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,12 +29,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>InstagramKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HashTagApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UICKeyChainStore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,7 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58EB981E1F319697442C72BFC148C92E</key>
+		<key>19407030CEEAD943658A1C497505EE62</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64B6F0982A39C74A4DA7F8BA0F4CE42E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +77,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A59BC18054BA8C967F8E1F05C8E86B80</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6A2FCC75B99B4C105D84CF83E5F218A</key>
+		<key>CE89033960EF5D490E2548ABE897E4EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
