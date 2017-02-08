@@ -12,6 +12,8 @@ target 'HashTagApp' do
 	pod 'Fabric'
 	pod 'TwitterKit'
 	pod 'TwitterCore'
+	pod 'InstagramKit', '~> 3.0'
+	pod 'InstagramKit/UICKeyChainStore'
 end
 
 
