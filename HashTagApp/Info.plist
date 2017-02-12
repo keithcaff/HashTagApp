@@ -76,6 +76,10 @@
     <true/>
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
+    <key>InstagramAppClientId</key>
+    <string>0b1d776027f946bf9ef445e6e95e431c</string>
+    <key>InstagramAppRedirectURL</key>
+    <string>http://www.google.com</string>
     
 </dict>
 </plist>
