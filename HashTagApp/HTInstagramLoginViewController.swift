@@ -9,12 +9,17 @@
 import Foundation
 import InstagramKit
 
+protocol HTInstagramLoginDelegate {
+    func authorizedInstagramSuccessfully(user:InstagramUser!)
+    func authorizeInstagramFailed(error: Error?)
+    
+}
 
 class HTInstagramLoginViewController: UIViewController, UIWebViewDelegate {
     
     
     @IBOutlet weak var webView: UIWebView!
-    
+    var delegate: HTInstagramLoginDelegate?
     var user:InstagramUser?
     var result:[AnyObject]?
     var accessToken:String!
@@ -32,34 +37,39 @@ class HTInstagramLoginViewController: UIViewController, UIWebViewDelegate {
         self.webView.scrollView.bounces = false;
         self.webView.loadRequest(URLRequest(url: authUrl))
         
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(InstagramViewController.reloadData),name:"reloadData", object: nil)
-        
     }
     
     
     
     //MARK: WebViewDelegate
-//    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-//        let engine = InstagramEngine.sharedEngine()
-//        do {
-//            try engine.receivedValidAccessTokenFromURL(request.URL)
-//            engine.getSelfUserDetailsWithSuccess({ (user) -> Void in
-//                self.saveUser(user)
-//                if let _delegate = self.delegate {
-//                    _delegate.instagramSignInSuccessful()
-//                }
-//            }, failure: { (error, int) -> Void in
-//                if let _delegate = self.delegate {
-//                    _delegate.instagramSignInFailed(error)
-//                }
-//            })
-//            
-//        } catch {
-//            
-//        }
-//        
-//        return true
-//    }
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        let engine = InstagramEngine.shared()
+        do {
+            if let url = request.url {
+                try engine.receivedValidAccessToken(from: url)
+                engine.getSelfUserDetails(success: {[unowned self] (instaUser:InstagramUser) -> Void in
+                    print("success - \(instaUser.fullName)")
+                    if let d = self.delegate {
+                        DispatchQueue.main.async {
+                            
+                            d.authorizedInstagramSuccessfully(user:instaUser)
+                        }
+                    }
+                    
+                },
+                failure: {(error, int) -> Void in
+                    if let d = self.delegate {
+                        DispatchQueue.main.async {
+                            d.authorizeInstagramFailed(error:error)
+                        }
+                    }
+                })
+            }
+        }
+        catch {
+        
+        }
+        return true
+    }
     
 }

@@ -12,7 +12,7 @@ import Firebase
 import TwitterKit
 import InstagramKit
 
-class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, HTInstagramLoginDelegate {
     
     var searchTimer:Timer?
     var datasource:[Any] = [Any]()
@@ -33,6 +33,10 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
+        let instaEngine = InstagramEngine.shared()
+        if instaEngine.accessToken != nil {
+            self.instagramButton.isHidden = true;
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +56,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     @IBAction func instagramButtonTapped(_ sender: Any) {
         if let nav = self.navigationController {
             let instagramLoginVC = self.storyboard?.instantiateViewController(withIdentifier: "instagramLoginVC") as! HTInstagramLoginViewController
+            instagramLoginVC.delegate = self
             nav.pushViewController(instagramLoginVC, animated: true)
         }
     }
@@ -137,6 +142,21 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
+    
+    // MARK: - HTInstagramLoginDelegate methods
+    
+    func authorizedInstagramSuccessfully(user:InstagramUser!) {
+        instagramButton.isHidden = true
+        if let nav = self.navigationController {
+            nav.popViewController(animated:true)
+        }
+    }
+    
+    func authorizeInstagramFailed(error: Error?) {
+        //TODO:show alert to user.
+    }
+
+    
     
     
     /*

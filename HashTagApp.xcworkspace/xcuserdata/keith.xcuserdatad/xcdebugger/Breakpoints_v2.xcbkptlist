@@ -80,27 +80,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508192194.773753"
+            timestampString = "508705977.694971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508192194.773753"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "handleTweetsRetrievedNotification(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -112,12 +96,284 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508192194.773753"
+            timestampString = "508705977.694971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "numberOfSections(in:)"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "HTMainViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705561.256879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705561.256879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705561.256879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705561.256879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HashTagApp.HTInstagramLoginViewController.webView (__ObjC.UIWebView, shouldStartLoadWith : Foundation.URLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool"
+                  moduleName = "HashTagApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramLoginViewController.swift"
+                  timestampString = "508705977.899853"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "959">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HashTagApp.HTInstagramLoginViewController.(webView (__ObjC.UIWebView, shouldStartLoadWith : Foundation.URLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #2)"
+                  moduleName = "HashTagApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramLoginViewController.swift"
+                  timestampString = "508705977.901351"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "576">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705561.256879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705561.256879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705664.986208"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705666.076924"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HashTagApp.HTInstagramLoginViewController.(webView (__ObjC.UIWebView, shouldStartLoadWith : Foundation.URLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #1)"
+                  moduleName = "HashTagApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramLoginViewController.swift"
+                  timestampString = "508705977.913063"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "764">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HashTagApp.HTInstagramLoginViewController.(webView (__ObjC.UIWebView, shouldStartLoadWith : Foundation.URLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #1).(closure #1)"
+                  moduleName = "HashTagApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramLoginViewController.swift"
+                  timestampString = "508705977.914466"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705666.594529"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTInstagramLoginViewController.swift"
+            timestampString = "508705666.977042"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "webView(_:shouldStartLoadWith:navigationType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HashTagApp.HTInstagramLoginViewController.(webView (__ObjC.UIWebView, shouldStartLoadWith : Foundation.URLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #1)"
+                  moduleName = "HashTagApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramLoginViewController.swift"
+                  timestampString = "508705977.920229"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "641">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HashTagApp.HTInstagramLoginViewController.(webView (__ObjC.UIWebView, shouldStartLoadWith : Foundation.URLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #1).(closure #1)"
+                  moduleName = "HashTagApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramLoginViewController.swift"
+                  timestampString = "508705977.921616"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HashTagApp/HTMainViewController.swift"
+            timestampString = "508705954.033862"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
