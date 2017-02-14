@@ -11,6 +11,8 @@ import NotificationCenter
 extension Notification.Name {
     static let firebaseSignInSuccess = Notification.Name("notification.ht.firebase.signIn.success")
     static let tweetsRetrieved = Notification.Name("notification.ht.twitter.tweets.retrieved")
+    static let instagramMediaRetrieved = Notification.Name("notification.ht.instagram.media.retrieved")
+    static let instagramMediaRetrievalFailed = Notification.Name("notification.ht.instagram.media.retrieval.failed")
 }
 
 struct Constants {
@@ -34,7 +36,8 @@ struct Constants {
     
     struct InstagramAPI {
         static let clientId = "0b1d776027f946bf9ef445e6e95e431c"
-        
+        static let instagramMediaKey = "InstagramMedia"
+        static let instagramPageInfoKey = "InstagramPageInfo"
     }
 
     struct Segues {

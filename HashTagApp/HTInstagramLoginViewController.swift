@@ -9,7 +9,7 @@
 import Foundation
 import InstagramKit
 
-protocol HTInstagramLoginDelegate {
+protocol HTInstagramLoginDelegate :class {
     func authorizedInstagramSuccessfully(user:InstagramUser!)
     func authorizeInstagramFailed(error: Error?)
     
@@ -19,7 +19,7 @@ class HTInstagramLoginViewController: UIViewController, UIWebViewDelegate {
     
     
     @IBOutlet weak var webView: UIWebView!
-    var delegate: HTInstagramLoginDelegate?
+    weak var delegate: HTInstagramLoginDelegate?
     var user:InstagramUser?
     var result:[AnyObject]?
     var accessToken:String!
@@ -30,16 +30,12 @@ class HTInstagramLoginViewController: UIViewController, UIWebViewDelegate {
             nav.isNavigationBarHidden = false
         }
         self.title = "Connect Instagram"
-        let scope: InstagramKitLoginScope = [.publicContent]
-        let authUrl:URL = InstagramEngine.shared().authorizationURL(for:scope)
+        let authUrl:URL = InstagramEngine.shared().authorizationURL()
         webView.scrollView.bounces = false
         webView.delegate = self
         self.webView.scrollView.bounces = false;
         self.webView.loadRequest(URLRequest(url: authUrl))
-        
     }
-    
-    
     
     //MARK: WebViewDelegate
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -47,9 +43,9 @@ class HTInstagramLoginViewController: UIViewController, UIWebViewDelegate {
         do {
             if let url = request.url {
                 try engine.receivedValidAccessToken(from: url)
-                engine.getSelfUserDetails(success: {[unowned self] (instaUser:InstagramUser) -> Void in
+                engine.getSelfUserDetails(success: {[weak self] (instaUser:InstagramUser) -> Void in
                     print("success - \(instaUser.fullName)")
-                    if let d = self.delegate {
+                    if let d = self?.delegate {
                         DispatchQueue.main.async {
                             
                             d.authorizedInstagramSuccessfully(user:instaUser)

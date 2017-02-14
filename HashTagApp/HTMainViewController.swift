@@ -16,7 +16,9 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     var searchTimer:Timer?
     var datasource:[Any] = [Any]()
+    var isInstagramConnected: Bool = false;
     static let tweetCellIdentifer = "tweetCell"
+    static let instagramCellIdentifer = "instagramCell"
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +27,8 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleTweetsRetrievedNotification(_ :)), name: .tweetsRetrieved, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleInstagramMediaRetrievedNotification(_ :)), name: .instagramMediaRetrieved, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleInstagramMediaRetrievalFailedNotification(_ :)), name: .instagramMediaRetrievalFailed, object: nil)
         searchBar.delegate = self
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -35,7 +39,8 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.allowsSelection = false
         let instaEngine = InstagramEngine.shared()
         if instaEngine.accessToken != nil {
-            self.instagramButton.isHidden = true;
+            isInstagramConnected = true;
+            self.instagramButton.isHidden = isInstagramConnected;
         }
     }
     
@@ -85,6 +90,9 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         if let searchTimer = self.searchTimer {
             let query:String = searchTimer.userInfo as! String
             HTTwitterAPIManager.sharedInstance.searchTwitter(query: query)
+            if(isInstagramConnected) {
+                HTInstagramAPIManager.sharedInstance.searchInstagram(tag: query)
+            }
         }
     }
 
@@ -98,7 +106,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             }
             return
         }
-        //weakSelf
+        
         DispatchQueue.main.async { [unowned self] in
             if let searchTimer = self.searchTimer {
                 searchTimer.invalidate()
@@ -117,6 +125,23 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             }
         }
 
+    }
+    
+    
+    public func handleInstagramMediaRetrievedNotification(_ notification:NSNotification) {
+        let instagramMediaObj = notification.object as! [String:Any]
+        let instagramMedia = instagramMediaObj[Constants.InstagramAPI.instagramMediaKey] as! [InstagramMedia]
+        let pageInfo = instagramMediaObj[Constants.InstagramAPI.instagramPageInfoKey] as! InstagramPaginationInfo
+        
+        print("success get tagged media. nextMaxId: \(pageInfo.nextMaxId)")
+        
+        for media:InstagramMedia in instagramMedia {
+            print("found - caption: \(media.caption)")
+        }
+    }
+    
+    public func handleInstagramMediaRetrievalFailedNotification(_ notification:NSNotification) {
+        //TODO: get the error from the notification object and display alert to user.
     }
     
     
@@ -146,6 +171,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     // MARK: - HTInstagramLoginDelegate methods
     
     func authorizedInstagramSuccessfully(user:InstagramUser!) {
+        self.isInstagramConnected = true
         instagramButton.isHidden = true
         if let nav = self.navigationController {
             nav.popViewController(animated:true)
@@ -153,12 +179,9 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     func authorizeInstagramFailed(error: Error?) {
-        //TODO:show alert to user.
+        //TODO: KC show alert to user with error
     }
 
-    
-    
-    
     /*
     // MARK: - Navigation
 

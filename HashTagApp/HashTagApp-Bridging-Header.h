@@ -10,6 +10,5 @@
 #define HashTagApp_Bridging_Header_h
 
 #import <InstagramKit/InstagramEngine.h>
-#import <InstagramKit/UICKeyChainStore.h>
 
 #endif /* HashTagApp_Bridging_Header_h */

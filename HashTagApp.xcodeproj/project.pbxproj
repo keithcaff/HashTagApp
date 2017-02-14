@@ -17,6 +17,7 @@
 		5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */; };
 		5334F9721E3D03390002FDEA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F9701E3D03390002FDEA /* AppState.swift */; };
 		5334F9731E3D03390002FDEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F9711E3D03390002FDEA /* Constants.swift */; };
+		534C8DB61E5371EB00DD438C /* HTInstagramAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C8DB51E5371EB00DD438C /* HTInstagramAPIManager.swift */; };
 		53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EABFBF1E3CDA9900649275 /* AppDelegate.swift */; };
 		53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC31E3CDA9900649275 /* Main.storyboard */; };
 		53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC61E3CDA9900649275 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		5334F96E1E3CFD910002FDEA /* HTSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTSignInViewController.swift; sourceTree = "<group>"; };
 		5334F9701E3D03390002FDEA /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5334F9711E3D03390002FDEA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		534C8DB51E5371EB00DD438C /* HTInstagramAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTInstagramAPIManager.swift; sourceTree = "<group>"; };
 		53EABFBC1E3CDA9900649275 /* HashTagApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HashTagApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EABFBF1E3CDA9900649275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53EABFC41E3CDA9900649275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				53FAFF9F1E43A84E0096AFF2 /* HTTwitterAPIManager.swift */,
+				534C8DB51E5371EB00DD438C /* HTInstagramAPIManager.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				5334F9731E3D03390002FDEA /* Constants.swift in Sources */,
 				5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */,
 				5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */,
+				534C8DB61E5371EB00DD438C /* HTInstagramAPIManager.swift in Sources */,
 				53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */,
 				5334F9721E3D03390002FDEA /* AppState.swift in Sources */,
 			);

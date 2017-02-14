@@ -5,7 +5,6 @@
 //  Created by Keith Caffrey on 02/02/2017.
 //  Copyright © 2017 Keith Caffrey. All rights reserved.
 //
-import Alamofire
 import TwitterKit
 import SwiftyJSON
 
