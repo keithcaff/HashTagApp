@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		44799ACF1E4BB66F00988329 /* HTInstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */; };
+		5319727C1E54CFA200315FCB /* HTInstagramImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5319727B1E54CFA200315FCB /* HTInstagramImageCell.swift */; };
+		5319727E1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5319727D1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib */; };
 		533021471E3FBE8900CF74FF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533021461E3FBE8900CF74FF /* Accounts.framework */; };
 		533021491E3FBE9A00CF74FF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533021481E3FBE9A00CF74FF /* Social.framework */; };
 		5330214B1E3FBEFD00CF74FF /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5330214A1E3FBEFD00CF74FF /* SafariServices.framework */; };
@@ -31,6 +33,8 @@
 		0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HashTagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44799ACD1E4BAFA400988329 /* HashTagApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HashTagApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTInstagramLoginViewController.swift; sourceTree = "<group>"; };
+		5319727B1E54CFA200315FCB /* HTInstagramImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTInstagramImageCell.swift; sourceTree = "<group>"; };
+		5319727D1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTInstagramImageTableViewCell.xib; sourceTree = "<group>"; };
 		533021461E3FBE8900CF74FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		533021481E3FBE9A00CF74FF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5330214A1E3FBEFD00CF74FF /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -83,6 +87,8 @@
 				53EABFC61E3CDA9900649275 /* Assets.xcassets */,
 				5334F96A1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard */,
 				53EABFC31E3CDA9900649275 /* Main.storyboard */,
+				5319727B1E54CFA200315FCB /* HTInstagramImageCell.swift */,
+				5319727D1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5319727E1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib in Resources */,
 				5334F96B1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard in Resources */,
 				53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */,
 				53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */,
@@ -373,6 +380,7 @@
 				5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */,
 				534C8DB61E5371EB00DD438C /* HTInstagramAPIManager.swift in Sources */,
 				53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */,
+				5319727C1E54CFA200315FCB /* HTInstagramImageCell.swift in Sources */,
 				5334F9721E3D03390002FDEA /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,7 @@ target 'HashTagApp' do
 	pod 'TwitterCore'
 	pod 'InstagramKit', '~> 3.0'
 	pod 'InstagramKit/UICKeyChainStore'
+	pod 'Nuke'
 end
 
 

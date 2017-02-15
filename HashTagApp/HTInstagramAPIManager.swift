@@ -8,6 +8,8 @@
 
 import Foundation
 import InstagramKit
+import Nuke
+
 
 public class HTInstagramAPIManager {
     
@@ -20,13 +22,32 @@ public class HTInstagramAPIManager {
     
     public func searchInstagram(tag:String) {
         let engine = InstagramEngine.shared()
-        //engine.getMediaWithTagName(<#T##tag: String##String#>, count: <#T##Int#>, maxId: <#T##String?#>, withSuccess: <#T##InstagramMediaBlock##InstagramMediaBlock##([InstagramMedia], InstagramPaginationInfo) -> Void#>, failure: <#T##InstagramFailureBlock?##InstagramFailureBlock?##(Error, Int) -> Void#>)
-        engine.getMediaWithTagName("mufc", count:5, maxId: nil, withSuccess: {media, paginationInfo in
+        engine.getMediaWithTagName("dublin", count:5, maxId: nil, withSuccess: {media, paginationInfo in
             let instagramMediaObj: [String : Any] = [Constants.InstagramAPI.instagramPageInfoKey : paginationInfo, Constants.InstagramAPI.instagramMediaKey : media]
             NotificationCenter.default.post(name:.instagramMediaRetrieved, object:instagramMediaObj)
         },failure:{ error in
             NotificationCenter.default.post(name:.instagramMediaRetrieved, object:error)
         })
+    }
+    
+    
+    public func retrieveImageForMedia(media:InstagramMedia) {
+        //https://github.com/kean/Nuke
+       // https://github.com/kean/Nuke/blob/master/Documentation/Migrations/Nuke%204%20Migration%20Guide.md
+        
+        var url = URLRequest(url: media.standardResolutionImageURL)
+        url.cachePolicy = .returnCacheDataElseLoad
+        url.timeoutInterval = 30
+
+        let request = Request(urlRequest:url)
+        let cache = Cache.shared
+        if let image = cache[request] {
+            print("this image is in the cache already \(image)")
+        }
+        else {
+           //TODO:
+        }
 
     }
+    
 }

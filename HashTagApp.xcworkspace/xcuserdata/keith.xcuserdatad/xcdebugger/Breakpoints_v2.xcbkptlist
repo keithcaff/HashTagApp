@@ -95,54 +95,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTInstagramAPIManager.swift"
-            timestampString = "508789591.186509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "searchInstagram(tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTInstagramAPIManager.swift"
-            timestampString = "508789591.186509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "searchInstagram(tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508788368.924302"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "handleInstagramMediaRetrievedNotification(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "HashTagApp/HTMainViewController.swift"
             timestampString = "508788370.702036"
             startingColumnNumber = "9223372036854775807"
@@ -160,11 +112,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508788649.331441"
+            timestampString = "508874068.448235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "handleInstagramMediaRetrievedNotification(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -176,124 +128,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508788649.940244"
+            timestampString = "508874299.288545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "handleInstagramMediaRetrievedNotification(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTInstagramAPIManager.swift"
-            timestampString = "508789591.186509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "searchInstagram(tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTInstagramAPIManager.swift"
-            timestampString = "508789591.186509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "searchInstagram(tag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTInstagramAPIManager.swift"
-            timestampString = "508789591.186509"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "searchInstagram(tag:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HashTagApp.HTInstagramAPIManager.searchInstagram (tag : Swift.String) -&gt; ()"
-                  moduleName = "HashTagApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramAPIManager.swift"
-                  timestampString = "508791505.797676"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "129">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HashTagApp.HTInstagramAPIManager.(searchInstagram (tag : Swift.String) -&gt; ()).(closure #1)"
-                  moduleName = "HashTagApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/keith/Dev/KC-DEV/HashTagApp/HashTagApp/HTInstagramAPIManager.swift"
-                  timestampString = "508791505.798945"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508788921.876849"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HashTagApp/HTMainViewController.swift"
-            timestampString = "508788924.048277"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
