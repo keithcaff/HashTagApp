@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HashTagApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>19407030CEEAD943658A1C497505EE62</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>64B6F0982A39C74A4DA7F8BA0F4CE42E</key>
+		<key>43285F3B8C293E3E1212400F02B293D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +77,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9302E4F6D8BAE4DAE7F861090BD8F091</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A59BC18054BA8C967F8E1F05C8E86B80</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

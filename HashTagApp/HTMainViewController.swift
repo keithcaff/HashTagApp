@@ -11,6 +11,7 @@ import GoogleSignIn
 import Firebase
 import TwitterKit
 import InstagramKit
+import Kingfisher
 
 class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, HTInstagramLoginDelegate {
     
@@ -18,7 +19,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     var datasource:[Any] = [Any]()
     var isInstagramConnected: Bool = false;
     static let tweetCellIdentifer = "tweetCell"
-    static let instagramCellIdentifer = "instagramCell"
+    static let instagramImageCellIdentifer = "instagramImageCell"
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -34,7 +35,8 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.dataSource = self;
         searchTwitterViewController = HTSearchTwitterViewController()
         tableView.register(TWTRTweetTableViewCell.self, forCellReuseIdentifier:HTMainViewController.tweetCellIdentifer)
-        tableView.estimatedRowHeight = 150
+        tableView.register(UINib(nibName: "HTInstagramImageTableViewCell", bundle: nil), forCellReuseIdentifier: HTMainViewController.instagramImageCellIdentifer)
+        tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
         let instaEngine = InstagramEngine.shared()
@@ -119,7 +121,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         //reload the table view here.....
         DispatchQueue.main.async { [unowned self] in
             if let tweets = notification.object as? [Any] {
-                self.datasource = tweets
+                self.datasource += tweets
                 self.tableView.reloadData()
                 print("got \(tweets.count) tweets from twitter!");
             }
@@ -138,6 +140,10 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         for media:InstagramMedia in instagramMedia {
             print("found - caption: \(media.caption)")
         }
+        print("before \(datasource.count)")
+        self.datasource  += instagramMedia as [Any]
+        print("after \(datasource.count)")
+        tableView.reloadData()
     }
     
     public func handleInstagramMediaRetrievalFailedNotification(_ notification:NSNotification) {
@@ -156,11 +162,24 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell = UITableViewCell()
-        let tweet:TWTRTweet = datasource[indexPath.row] as! TWTRTweet
-        let tweetCell:TWTRTweetTableViewCell! = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.tweetCellIdentifer) as! TWTRTweetTableViewCell
-        tweetCell.configure(with: tweet)
-        cell = tweetCell;
         
+        let dataObj :Any = datasource[indexPath.row]
+        if dataObj is InstagramMedia {
+            let media:InstagramMedia = dataObj as! InstagramMedia
+            let instagramImageCell: HTInstagramImageCell = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.instagramImageCellIdentifer) as! HTInstagramImageCell
+//            if instagramImageCell == nil  {
+//                instagramImageCell = HTInstagramImageCell()
+//            }
+            instagramImageCell.media = media
+            cell = instagramImageCell
+        }
+        else {
+            let tweet:TWTRTweet = datasource[indexPath.row] as! TWTRTweet
+            let tweetCell:TWTRTweetTableViewCell! = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.tweetCellIdentifer) as! TWTRTweetTableViewCell
+            
+            tweetCell.configure(with: tweet)
+            cell = tweetCell;
+        }
         return cell
     }
     

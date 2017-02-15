@@ -72,7 +72,7 @@ PODS:
   - InstagramKit/UICKeyChainStore (3.8):
     - AFNetworking (~> 3.0)
     - UICKeyChainStore (~> 2.0)
-  - Nuke (4.1.2)
+  - Kingfisher (3.3.2)
   - SwiftyJSON (3.1.4)
   - TwitterCore (2.8.0):
     - Fabric
@@ -88,7 +88,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - InstagramKit (~> 3.0)
   - InstagramKit/UICKeyChainStore
-  - Nuke
+  - Kingfisher
   - SwiftyJSON
   - TwitterCore
   - TwitterKit
@@ -110,12 +110,12 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   InstagramKit: 402d6bba375357b548039de08eea19a1b8716354
-  Nuke: 7cfd2acdf90c36f66e6ea40795bac0d851a9afe0
+  Kingfisher: 8e60094454aeb4746eb588eb57f794d891c6ea88
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: f7b0a1adcb800f6446ff0ef70164797376522ff3
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
-PODFILE CHECKSUM: 5a6308cc8758fd814695d264607858a9de37f4ed
+PODFILE CHECKSUM: 4612e407c983ab6b74fdb58a62f5eef3f5a050c2
 
 COCOAPODS: 1.2.0
