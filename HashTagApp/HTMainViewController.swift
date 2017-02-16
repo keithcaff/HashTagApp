@@ -167,10 +167,10 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         if dataObj is InstagramMedia {
             let media:InstagramMedia = dataObj as! InstagramMedia
             let instagramImageCell: HTInstagramImageCell = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.instagramImageCellIdentifer) as! HTInstagramImageCell
-//            if instagramImageCell == nil  {
-//                instagramImageCell = HTInstagramImageCell()
-//            }
             instagramImageCell.media = media
+            if let caption = media.caption {
+                instagramImageCell.caption.text = caption.text
+            }
             cell = instagramImageCell
         }
         else {

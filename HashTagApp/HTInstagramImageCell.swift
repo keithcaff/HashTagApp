@@ -16,6 +16,7 @@ public class HTInstagramImageCell : UITableViewCell {
     
     @IBOutlet weak var instaImage: UIImageView!
     
+    @IBOutlet weak var caption: UILabel!
     
     var media: InstagramMedia? {
         didSet {
