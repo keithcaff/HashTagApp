@@ -90,6 +90,11 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     func performSearch() {
         if let searchTimer = self.searchTimer {
+            //clear old search first
+            DispatchQueue.main.async { [unowned self] in
+                self.datasource =  [Any]()
+                self.tableView.reloadData();
+            }
             let query:String = searchTimer.userInfo as! String
             HTTwitterAPIManager.sharedInstance.searchTwitter(query: query)
             if(isInstagramConnected) {
@@ -152,10 +157,9 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     
     // MARK: - Table view delegate methods
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count
