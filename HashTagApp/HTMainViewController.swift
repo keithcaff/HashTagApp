@@ -152,6 +152,11 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     
     // MARK: - Table view delegate methods
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count
     }
