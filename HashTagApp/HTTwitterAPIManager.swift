@@ -19,6 +19,9 @@ public class HTTwitterAPIManager {
     public func searchTwitter(query:String!) {
         let params = [Constants.TwitterAPI.queryKey: query]
         var clientError : NSError?
+        
+        //TODO: get the guest session id https://docs.fabric.io/apple/twitter/log-in-with-twitter.html  
+        
         let userID = Twitter.sharedInstance().sessionStore.session()?.userID
         let client = TWTRAPIClient(userID: userID)
         let url:String = "\(Constants.TwitterAPI.baseUrl)\(Constants.TwitterAPI.searchPath)"

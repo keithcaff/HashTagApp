@@ -68,52 +68,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L67-TJ-1XV">
-                                <rect key="frame" x="148" y="624" width="79" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="hUb-cD-E7u"/>
-                                    <constraint firstAttribute="width" constant="79" id="hX2-N7-hTB"/>
-                                </constraints>
-                                <state key="normal" title="Sign out"/>
-                                <connections>
-                                    <action selector="signOutButtonTapped:" destination="31s-S4-Plx" eventType="touchUpInside" id="ZKU-ex-GXJ"/>
-                                </connections>
-                            </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hjn-lE-wIg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pnU-aP-nZs">
-                                <rect key="frame" x="0.0" y="44" width="375" height="500"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="534"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-wV-nlq">
-                                <rect key="frame" x="99" y="586" width="177" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8kP-tn-5xO">
+                                <rect key="frame" x="99" y="591" width="177" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgz-wV-nlq">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1Qw-Yx-AjA"/>
+                                            <constraint firstAttribute="width" constant="177" id="7oV-LP-cft"/>
+                                        </constraints>
+                                        <state key="normal" title="Connect Instagram"/>
+                                        <connections>
+                                            <action selector="instagramButtonTapped:" destination="31s-S4-Plx" eventType="touchUpInside" id="H0S-xC-x17"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L67-TJ-1XV">
+                                        <rect key="frame" x="49" y="30" width="79" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hUb-cD-E7u"/>
+                                            <constraint firstAttribute="width" constant="79" id="hX2-N7-hTB"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign out"/>
+                                        <connections>
+                                            <action selector="signOutButtonTapped:" destination="31s-S4-Plx" eventType="touchUpInside" id="ZKU-ex-GXJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1Qw-Yx-AjA"/>
-                                    <constraint firstAttribute="width" constant="177" id="7oV-LP-cft"/>
+                                    <constraint firstAttribute="width" constant="177" id="Mtm-FZ-5ni"/>
                                 </constraints>
-                                <state key="normal" title="Connect Instagram"/>
-                                <connections>
-                                    <action selector="instagramButtonTapped:" destination="31s-S4-Plx" eventType="touchUpInside" id="H0S-xC-x17"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hjn-lE-wIg" secondAttribute="trailing" id="22k-Pz-wDz"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="L67-TJ-1XV" secondAttribute="bottom" constant="13" id="74M-PT-KSE"/>
                             <constraint firstItem="pnU-aP-nZs" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leadingMargin" constant="-16" id="BYX-8y-zja"/>
                             <constraint firstItem="hjn-lE-wIg" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leading" id="Es4-Lc-7F5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pnU-aP-nZs" secondAttribute="trailing" constant="-16" id="KBv-oG-zJK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8kP-tn-5xO" secondAttribute="trailing" constant="83" id="QAZ-oV-rXW"/>
                             <constraint firstItem="pnU-aP-nZs" firstAttribute="top" secondItem="hjn-lE-wIg" secondAttribute="bottom" id="alH-Ab-qmz"/>
                             <constraint firstAttribute="topMargin" secondItem="hjn-lE-wIg" secondAttribute="top" id="bXy-dv-Oxz"/>
-                            <constraint firstItem="Rgz-wV-nlq" firstAttribute="bottom" secondItem="L67-TJ-1XV" secondAttribute="bottom" constant="-38" id="cOd-Ms-JWF"/>
-                            <constraint firstItem="L67-TJ-1XV" firstAttribute="top" secondItem="pnU-aP-nZs" secondAttribute="bottom" constant="80" id="h7h-MY-7Lu"/>
-                            <constraint firstItem="Rgz-wV-nlq" firstAttribute="centerX" secondItem="xVC-5s-eWN" secondAttribute="centerX" id="ijA-6Q-FCd"/>
-                            <constraint firstItem="L67-TJ-1XV" firstAttribute="centerX" secondItem="xVC-5s-eWN" secondAttribute="centerX" id="ltQ-lg-dUj"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="8kP-tn-5xO" secondAttribute="bottom" constant="16" id="kqF-Vd-nbz"/>
+                            <constraint firstItem="8kP-tn-5xO" firstAttribute="leading" secondItem="xVC-5s-eWN" secondAttribute="leadingMargin" constant="83" id="wen-mR-Dvb"/>
+                            <constraint firstItem="Rgz-wV-nlq" firstAttribute="top" secondItem="pnU-aP-nZs" secondAttribute="bottom" constant="13" id="yux-sR-b6t"/>
                         </constraints>
                     </view>
                     <connections>

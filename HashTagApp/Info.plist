@@ -26,6 +26,14 @@
 				<string>com.googleusercontent.apps.531727235287-l0bigdes75097p13e0kvig18hq6mv230</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-4LNPnzQTATpniW6tCl8fzQryF</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -39,15 +47,19 @@
 				<key>KitInfo</key>
 				<dict>
 					<key>consumerKey</key>
-					<string>BRIyVQKtDfB0Iwwvn8IMDcrUD</string>
+					<string>4LNPnzQTATpniW6tCl8fzQryF</string>
 					<key>consumerSecret</key>
-					<string>sijBNfWx4dfR0SbGjJ33KkUWFD4URgxKjXYLkfuuU2y4YK3EaK</string>
+					<string>Zv6XXHigjZaVrLIgtqn4a9YSq81isSdKyGy6H70pASaQW3Ipvv</string>
 				</dict>
 				<key>KitName</key>
 				<string>Twitter</string>
 			</dict>
 		</array>
 	</dict>
+	<key>InstagramAppClientId</key>
+	<string>0b1d776027f946bf9ef445e6e95e431c</string>
+	<key>InstagramAppRedirectURL</key>
+	<string>http://www.google.com</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -58,6 +70,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -71,15 +85,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>UIStatusBarHidden</key>
-    <true/>
-    <key>UIViewControllerBasedStatusBarAppearance</key>
-    <false/>
-    <key>InstagramAppClientId</key>
-    <string>0b1d776027f946bf9ef445e6e95e431c</string>
-    <key>InstagramAppRedirectURL</key>
-    <string>http://www.google.com</string>
-    
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

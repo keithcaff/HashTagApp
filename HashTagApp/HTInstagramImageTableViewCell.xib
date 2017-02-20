@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,15 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="instagramImageCell" selectionStyle="default" indentationWidth="10" rowHeight="315" id="qve-v4-5lr" customClass="HTInstagramImageCell" customModule="HashTagApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="instagramImageCell" selectionStyle="default" indentationWidth="10" rowHeight="268" id="qve-v4-5lr" customClass="HTInstagramImageCell" customModule="HashTagApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qve-v4-5lr" id="bbh-Wj-UoN">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mje-6P-FJ0">
-                        <rect key="frame" x="10" y="40" width="300" height="290"/>
+                        <rect key="frame" x="10" y="40" width="300" height="215.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="215.5" id="6pG-5v-lrH"/>
+                        </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyph-logo_May2016" translatesAutoresizingMaskIntoConstraints="NO" id="gAx-8N-A3k">
                         <rect key="frame" x="285" y="8" width="25" height="25"/>
@@ -29,10 +32,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image caption" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60e-XA-h6e">
-                        <rect key="frame" x="10" y="338" width="280" height="22"/>
+                        <rect key="frame" x="10" y="263.5" width="280" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="280" id="DCH-fb-cgB"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="JZj-rf-OIa"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -41,21 +43,21 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="gAx-8N-A3k" firstAttribute="top" secondItem="bbh-Wj-UoN" secondAttribute="top" constant="8" id="2lH-bP-FLZ"/>
-                    <constraint firstItem="60e-XA-h6e" firstAttribute="leading" secondItem="Mje-6P-FJ0" secondAttribute="leading" id="8lk-4m-Oue"/>
                     <constraint firstItem="gAx-8N-A3k" firstAttribute="trailing" secondItem="Mje-6P-FJ0" secondAttribute="trailing" id="A90-N5-dle"/>
-                    <constraint firstAttribute="bottom" secondItem="Mje-6P-FJ0" secondAttribute="bottom" constant="50" id="K5i-iO-1W1"/>
+                    <constraint firstAttribute="bottom" secondItem="Mje-6P-FJ0" secondAttribute="bottom" constant="44" id="K5i-iO-1W1"/>
                     <constraint firstItem="60e-XA-h6e" firstAttribute="top" secondItem="Mje-6P-FJ0" secondAttribute="bottom" constant="8" id="OFB-jB-lEj"/>
                     <constraint firstItem="Mje-6P-FJ0" firstAttribute="top" secondItem="bbh-Wj-UoN" secondAttribute="top" constant="40" id="ObI-vv-Hp5"/>
                     <constraint firstItem="Mje-6P-FJ0" firstAttribute="leading" secondItem="bbh-Wj-UoN" secondAttribute="leading" constant="10" id="Ww3-7O-8Eh"/>
                     <constraint firstAttribute="trailing" secondItem="Mje-6P-FJ0" secondAttribute="trailing" constant="10" id="f1n-Gu-Im1"/>
-                    <constraint firstAttribute="bottom" secondItem="60e-XA-h6e" secondAttribute="bottom" constant="21" id="kcK-Pb-V1o"/>
+                    <constraint firstItem="60e-XA-h6e" firstAttribute="leading" secondItem="Mje-6P-FJ0" secondAttribute="leading" id="gBR-1N-wZX"/>
+                    <constraint firstAttribute="bottom" secondItem="60e-XA-h6e" secondAttribute="bottom" constant="15.5" id="nwY-Jl-Ttl"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="caption" destination="60e-XA-h6e" id="MXK-gf-alr"/>
                 <outlet property="instaImage" destination="Mje-6P-FJ0" id="YEf-mq-rE6"/>
             </connections>
-            <point key="canvasLocation" x="-57" y="-85.5"/>
+            <point key="canvasLocation" x="-57" y="-109"/>
         </tableViewCell>
     </objects>
     <resources>

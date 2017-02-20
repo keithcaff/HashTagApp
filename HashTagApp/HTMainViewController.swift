@@ -36,7 +36,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         searchTwitterViewController = HTSearchTwitterViewController()
         tableView.register(TWTRTweetTableViewCell.self, forCellReuseIdentifier:HTMainViewController.tweetCellIdentifer)
         tableView.register(UINib(nibName: "HTInstagramImageTableViewCell", bundle: nil), forCellReuseIdentifier: HTMainViewController.instagramImageCellIdentifer)
-        tableView.estimatedRowHeight = 300
+        tableView.estimatedRowHeight = 220
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
         let instaEngine = InstagramEngine.shared()
