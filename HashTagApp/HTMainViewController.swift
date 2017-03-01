@@ -153,6 +153,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     public func handleInstagramMediaRetrievalFailedNotification(_ notification:NSNotification) {
         //TODO: get the error from the notification object and display alert to user.
+         print("Instagram media retrieval failed with error: \(notification.object)")
     }
     
     
@@ -208,6 +209,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     func authorizeInstagramFailed(error: Error?) {
         //TODO: KC show alert to user with error
+        print("authorizeInstagramFailed with error: \(error)")
     }
 
     /*

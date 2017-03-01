@@ -30,6 +30,7 @@ struct Constants {
         static let searchPath = "search/tweets.json"
         static let signatureMethod = "HMAC-SHA1"
         static let queryKey = "q"
+        static let countKey = "count"
         static let resultTypeKey = "result_type"
         static let statusesKey = "statuses"
     }

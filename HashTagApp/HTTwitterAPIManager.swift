@@ -17,7 +17,7 @@ public class HTTwitterAPIManager {
     private init() { }
     
     public func searchTwitter(query:String!) {
-        let params = [Constants.TwitterAPI.queryKey: query]
+        let params = [Constants.TwitterAPI.queryKey: query, Constants.TwitterAPI.countKey:"10"]
         var clientError : NSError?
         let client = TWTRAPIClient(userID: nil) //passing nil to TWTRAPIClient init will use guest client.
         let url:String = "\(Constants.TwitterAPI.baseUrl)\(Constants.TwitterAPI.searchPath)"
@@ -37,5 +37,4 @@ public class HTTwitterAPIManager {
             NotificationCenter.default.post(name:.tweetsRetrieved, object: tweets)
         }
     }
-    
 }
