@@ -17,7 +17,8 @@ public class HTTwitterAPIManager {
     private init() { }
     
     public func searchTwitter(query:String!) {
-        let params = [Constants.TwitterAPI.queryKey: query, Constants.TwitterAPI.countKey:"10"]
+        //https://dev.twitter.com/rest/reference/get/search/tweets api documentation
+        let params = [Constants.TwitterAPI.queryKey: query, Constants.TwitterAPI.countKey:"5"]
         var clientError : NSError?
         let client = TWTRAPIClient(userID: nil) //passing nil to TWTRAPIClient init will use guest client.
         let url:String = "\(Constants.TwitterAPI.baseUrl)\(Constants.TwitterAPI.searchPath)"
@@ -33,8 +34,9 @@ public class HTTwitterAPIManager {
             }
             let json = JSON(data)
             let jsonArray = json[Constants.TwitterAPI.statusesKey].arrayObject
+            let searchMetaData : [String:Any]? = json[Constants.TwitterAPI.searchMetaDataKey].dictionaryObject
             let tweets = TWTRTweet.tweets(withJSONArray:jsonArray) as! [TWTRTweet]
-            NotificationCenter.default.post(name:.tweetsRetrieved, object: tweets)
+            NotificationCenter.default.post(name:.tweetsRetrieved, object: tweets, userInfo: searchMetaData)
         }
     }
 }

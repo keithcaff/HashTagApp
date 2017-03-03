@@ -18,6 +18,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     var searchTimer:Timer?
     var datasource:[Any] = [Any]()
     var isInstagramConnected: Bool = false;
+    var twitterSearchMetaData : [String : Any]?
     static let tweetCellIdentifer = "tweetCell"
     static let instagramImageCellIdentifer = "instagramImageCell"
     @IBOutlet weak var searchBar: UISearchBar!
@@ -94,6 +95,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             DispatchQueue.main.async { [unowned self] in
                 self.datasource =  [Any]()
                 self.tableView.reloadData();
+                self.twitterSearchMetaData = nil
             }
             let query:String = searchTimer.userInfo as! String
             HTTwitterAPIManager.sharedInstance.searchTwitter(query: query)
@@ -127,9 +129,11 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         DispatchQueue.main.async { [unowned self] in
             if let tweets = notification.object as? [Any] {
                 self.datasource += tweets
+                self.twitterSearchMetaData = notification.userInfo as! [String : Any]?
                 self.tableView.reloadData()
                 print("got \(tweets.count) tweets from twitter!");
             }
+          
         }
 
     }

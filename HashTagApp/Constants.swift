@@ -33,6 +33,7 @@ struct Constants {
         static let countKey = "count"
         static let resultTypeKey = "result_type"
         static let statusesKey = "statuses"
+        static let searchMetaDataKey = "search_metadata"
     }
     
     struct InstagramAPI {
