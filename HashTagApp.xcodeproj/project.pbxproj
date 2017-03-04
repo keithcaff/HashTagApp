@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		44799ACF1E4BB66F00988329 /* HTInstagramLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */; };
+		44F435291E6A389C005AF746 /* HTBusyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F435281E6A389C005AF746 /* HTBusyTableViewCell.xib */; };
+		44F4352B1E6A3CB2005AF746 /* HTBusyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4352A1E6A3CB2005AF746 /* HTBusyTableViewCell.swift */; };
 		5319727C1E54CFA200315FCB /* HTInstagramImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5319727B1E54CFA200315FCB /* HTInstagramImageCell.swift */; };
 		5319727E1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5319727D1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib */; };
 		533021471E3FBE8900CF74FF /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533021461E3FBE8900CF74FF /* Accounts.framework */; };
@@ -33,6 +35,8 @@
 		0F5FC3739EF0D282612BA089 /* Pods_HashTagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HashTagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44799ACD1E4BAFA400988329 /* HashTagApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HashTagApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTInstagramLoginViewController.swift; sourceTree = "<group>"; };
+		44F435281E6A389C005AF746 /* HTBusyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTBusyTableViewCell.xib; sourceTree = "<group>"; };
+		44F4352A1E6A3CB2005AF746 /* HTBusyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTBusyTableViewCell.swift; sourceTree = "<group>"; };
 		5319727B1E54CFA200315FCB /* HTInstagramImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTInstagramImageCell.swift; sourceTree = "<group>"; };
 		5319727D1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTInstagramImageTableViewCell.xib; sourceTree = "<group>"; };
 		533021461E3FBE8900CF74FF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -89,6 +93,8 @@
 				53EABFC31E3CDA9900649275 /* Main.storyboard */,
 				5319727B1E54CFA200315FCB /* HTInstagramImageCell.swift */,
 				5319727D1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib */,
+				44F435281E6A389C005AF746 /* HTBusyTableViewCell.xib */,
+				44F4352A1E6A3CB2005AF746 /* HTBusyTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 			files = (
 				5319727E1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib in Resources */,
 				5334F96B1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard in Resources */,
+				44F435291E6A389C005AF746 /* HTBusyTableViewCell.xib in Resources */,
 				53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */,
 				53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */,
 				53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */,
@@ -375,6 +382,7 @@
 				53FAFFA01E43A84E0096AFF2 /* HTTwitterAPIManager.swift in Sources */,
 				44799ACF1E4BB66F00988329 /* HTInstagramLoginViewController.swift in Sources */,
 				53F47B501E40C5850034B7A3 /* HTSearchTwitterViewController.swift in Sources */,
+				44F4352B1E6A3CB2005AF746 /* HTBusyTableViewCell.swift in Sources */,
 				5334F9731E3D03390002FDEA /* Constants.swift in Sources */,
 				5334F96D1E3CF8540002FDEA /* HTMainViewController.swift in Sources */,
 				5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */,
