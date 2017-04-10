@@ -13,6 +13,7 @@ import TwitterKit
 import InstagramKit
 import Kingfisher
 
+
 class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, HTInstagramLoginDelegate {
     
     var searchTimer:Timer?
@@ -105,41 +106,51 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
     }
     
-    func performSearch() {
-        if let searchTimer = self.searchTimer {
-            //clear old search first
-            DispatchQueue.main.async { [unowned self] in
-                self.datasource =  [Any]()
-                self.tableView.reloadData();
-                self.twitterSearchMetaData = nil
-            }
-            let query:String = searchTimer.userInfo as! String
-            HTTwitterAPIManager.sharedInstance.searchTwitter(query: query)
-            self.twitterLoading = true;
-            if(isInstagramConnected) {
-                HTInstagramAPIManager.sharedInstance.searchInstagram(tag: query)
-                self.instagramLoading = true;
-            }
+    func performSearch(_ searchText:String) {
+        //clear old search first
+        DispatchQueue.main.async { [unowned self] in
+            self.datasource =  [Any]()
+            self.tableView.reloadData();
+            self.twitterSearchMetaData = nil
         }
+    
+        HTTwitterAPIManager.sharedInstance.searchTwitter(query: searchText)
+        self.twitterLoading = true;
+        if(isInstagramConnected) {
+            HTInstagramAPIManager.sharedInstance.searchInstagram(tag: searchText)
+            self.instagramLoading = true;
+        }
+    }
+    
+    
+    func invalidateSearch() {
+        self.searchTimer?.invalidate()
+        self.twitterSearchMetaData = nil;
+        self.twitterLoading = false;
+        self.instagramLoading = false;
+        self.hideShowTableViewFooter(isLoading: false)
     }
 
     // MARK: UISearchBarDelegate methods
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let text = searchText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let text = getSearchText()
         if (text.characters.count < 2) {
-            if let searchTimer = self.searchTimer {
-                searchTimer.invalidate()
+            if self.searchTimer != nil {
+                self.invalidateSearch()
             }
             return
         }
         
         DispatchQueue.main.async { [unowned self] in
-            if let searchTimer = self.searchTimer {
-                searchTimer.invalidate()
+            if self.searchTimer != nil {
+                self.invalidateSearch()
             }
-            self.searchTimer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: #selector(self.performSearch), userInfo: text, repeats:false)
+            self.searchTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { (Timer) in
+                self.performSearch(text)
+            })
         }
+//            self.searchTimer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: #selector(self.performSearch()), userInfo: text, repeats:false)
     }
     // MARK: - Notifications
     public func handleTweetsRetrievedNotification(_ notification:NSNotification) {
@@ -152,10 +163,11 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
                 print("got \(tweets.count) tweets from twitter!");
             }
             self.twitterLoading = false
-          
         }
-
     }
+    
+    
+    
     
     
     public func handleInstagramMediaRetrievedNotification(_ notification:NSNotification) {
@@ -176,7 +188,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     public func handleInstagramMediaRetrievalFailedNotification(_ notification:NSNotification) {
         //TODO: get the error from the notification object and display alert to user.
-         print("Instagram media retrieval failed with error: \(notification.object)")
+        print("Instagram media retrieval failed with error: \(notification.object)")
         self.instagramLoading = false
     }
     
@@ -196,9 +208,27 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
     }
     
+    
+    func getSearchText() -> String {
+        var searchText = ""
+        if let text =  searchBar.text {
+            searchText = text
+            searchText = searchText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
+        return searchText
+    }
+    
     func getNextPageOfResults() {
         //TODO: make call to twitter and instagram apis if connected.
-        self.hideShowTableViewFooter(isLoading: (self.twitterLoading || self.instagramLoading))
+        let searchText = getSearchText()
+        if (searchText.characters.count >= 2) {
+            performSearch(searchText);
+            self.hideShowTableViewFooter(isLoading:true)
+        }
+        else {
+            self.hideShowTableViewFooter(isLoading:false)
+        }
+        
     }
     
     func hideShowTableViewFooter(isLoading loading:Bool) {
@@ -229,7 +259,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
 //            self.tableview.tableFooterView = spinner
 //            self.tableview.tableFooterView?.isHidden = false
 //        }
-//    }
+//    }d
     
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
