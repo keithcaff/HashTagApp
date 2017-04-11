@@ -78,7 +78,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     // MARK: Actions
-    
     @IBAction func instagramButtonTapped(_ sender: Any) {
         if let nav = self.navigationController {
             let instagramLoginVC = self.storyboard?.instantiateViewController(withIdentifier: "instagramLoginVC") as! HTInstagramLoginViewController
@@ -122,7 +121,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
     }
     
-    
     func invalidateSearch() {
         self.searchTimer?.invalidate()
         self.twitterSearchMetaData = nil;
@@ -150,8 +148,8 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
                 self.performSearch(text)
             })
         }
-//            self.searchTimer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: #selector(self.performSearch()), userInfo: text, repeats:false)
     }
+    
     // MARK: - Notifications
     public func handleTweetsRetrievedNotification(_ notification:NSNotification) {
         //reload the table view here.....
@@ -165,10 +163,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             self.twitterLoading = false
         }
     }
-    
-    
-    
-    
     
     public func handleInstagramMediaRetrievedNotification(_ notification:NSNotification) {
         let instagramMediaObj = notification.object as! [String:Any]
@@ -247,21 +241,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let lastSectionIndex = tableView.numberOfSections - 1
-//        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-//        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-//            // print("this is the last cell")
-//            var spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-//            spinner.startAnimating()
-//            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-//            
-//            self.tableview.tableFooterView = spinner
-//            self.tableview.tableFooterView?.isHidden = false
-//        }
-//    }d
-    
-    
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
@@ -271,19 +250,8 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         if(!datasource.isEmpty) {
             rows = datasource.count
         }
-//        else if(!datasource.isEmpty && busyCell != nil) {
-//            rows = datasource.count + 1
-//        }
         return rows
     }
-    
-    
-    
-    
-    
-    
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
@@ -312,7 +280,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     // MARK: - HTInstagramLoginDelegate methods
-    
     func authorizedInstagramSuccessfully(user:InstagramUser!) {
         self.isInstagramConnected = true
         instagramButton.isHidden = true
@@ -325,17 +292,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         //TODO: KC show alert to user with error
         print("authorizeInstagramFailed with error: \(error)")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
 
 }
