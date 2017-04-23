@@ -32,7 +32,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     let tweetCellIdentifer = "tweetCell"
     let busyCellIdentifer = "busyCell"
     let instagramImageCellIdentifer = "instagramImageCell"
-    
+    let refreshControlTintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var instagramButton: UIButton!
@@ -54,9 +54,14 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.estimatedRowHeight = 220
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
-        tableView.refreshControl = refreshControl
+        
+        // Configure Refresh Control
+        let attributes = [ NSForegroundColorAttributeName : refreshControlTintColor ] as [String: Any]
+        refreshControl.tintColor = refreshControlTintColor
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching results ...", attributes: attributes)
         refreshControl.addTarget(self, action: #selector(HTMainViewController.fetchMoreData(sender:)), for: .valueChanged)
-
+        tableView.refreshControl = refreshControl
+        
         let instaEngine = InstagramEngine.shared()
         if instaEngine.accessToken != nil {
             isInstagramConnected = true;
@@ -180,11 +185,11 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     private func hasProcessed(twitterResults results:[TWTRTweet]) -> Bool {
         var processedTweetsAlready = true
-        if(datasource.isEmpty) {
+        var onlyTweets = self.datasource.filter { $0 is TWTRTweet}
+        if(onlyTweets.isEmpty) {
             processedTweetsAlready = false
         }
         if(processedTweetsAlready) {
-            var onlyTweets = self.datasource.filter { $0 is TWTRTweet}
             let topTweet = onlyTweets[0] as! TWTRTweet
             let latestTweetId = results[0].tweetID
             if(topTweet.tweetID.caseInsensitiveCompare(latestTweetId) != ComparisonResult.orderedSame){
