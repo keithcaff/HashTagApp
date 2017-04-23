@@ -16,20 +16,24 @@ import Kingfisher
 
 class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, HTInstagramLoginDelegate {
     
+    private let refreshControl: UIRefreshControl = UIRefreshControl()
+    
     var searchTimer:Timer?
     var datasource:[Any] = [Any]()
     var isInstagramConnected: Bool = false;
     var twitterSearchMetaData : [String : Any]?
-    var refreshControl: UIRefreshControl!
+    var instagramSearchMetaData : [String : Any]?
     var busyCell: HTBusyTableViewCell?
     var instagramLoading: Bool = false
     var twitterLoading: Bool = false
-    //In viewDidLoad
+    let instagramMetaDataKey = "instagramMetaDataKey"
+    let twitterMetaDataKey = "twitterMetaDataKey"
     
- 
-    static let tweetCellIdentifer = "tweetCell"
-    static let busyCellIdentifer = "busyCell"
-    static let instagramImageCellIdentifer = "instagramImageCell"
+    let tweetCellIdentifer = "tweetCell"
+    let busyCellIdentifer = "busyCell"
+    let instagramImageCellIdentifer = "instagramImageCell"
+    
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -50,6 +54,9 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.estimatedRowHeight = 220
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(HTMainViewController.fetchMoreData(sender:)), for: .valueChanged)
+
         let instaEngine = InstagramEngine.shared()
         if instaEngine.accessToken != nil {
             isInstagramConnected = true;
@@ -58,10 +65,10 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     func registerXibs() {
-        tableView.register(UINib(nibName: "HTBusyTableViewCell", bundle: nil), forCellReuseIdentifier: HTMainViewController.busyCellIdentifer)
+        tableView.register(UINib(nibName: "HTBusyTableViewCell", bundle: nil), forCellReuseIdentifier: busyCellIdentifer)
         
-        tableView.register(TWTRTweetTableViewCell.self, forCellReuseIdentifier:HTMainViewController.tweetCellIdentifer)
-        tableView.register(UINib(nibName: "HTInstagramImageTableViewCell", bundle: nil), forCellReuseIdentifier: HTMainViewController.instagramImageCellIdentifer)
+        tableView.register(TWTRTweetTableViewCell.self, forCellReuseIdentifier:tweetCellIdentifer)
+        tableView.register(UINib(nibName: "HTInstagramImageTableViewCell", bundle: nil), forCellReuseIdentifier: instagramImageCellIdentifer)
 
     }
     
@@ -105,6 +112,27 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
     }
     
+    
+    @objc private func fetchMoreData(sender: UIRefreshControl) {
+        let searchText = getSearchText()
+        let hasMetaData = ((twitterSearchMetaData != nil) || (instagramSearchMetaData != nil))
+        if (searchText.characters.count >= 2 && hasMetaData) {
+            var searchMetaData: [String: Any?]
+            searchMetaData = [twitterMetaDataKey:twitterSearchMetaData, instagramMetaDataKey:nil]
+            performSearch(searchText, searchMetaData);
+        }
+        else {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    
+    func performSearch(_ searchText:String, _ searchMetaData:[String: Any?]) {
+        if let twitterMetaData = searchMetaData[twitterMetaDataKey] {
+            HTTwitterAPIManager.sharedInstance.searchTwitter(withMetaData: twitterMetaData as! [String : Any?], andQuery: searchText)
+        }
+    }
+    
     func performSearch(_ searchText:String) {
         //clear old search first
         DispatchQueue.main.async { [unowned self] in
@@ -112,7 +140,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             self.tableView.reloadData();
             self.twitterSearchMetaData = nil
         }
-    
+        self.refreshControl.beginRefreshing();
         HTTwitterAPIManager.sharedInstance.searchTwitter(query: searchText)
         self.twitterLoading = true;
         if(isInstagramConnected) {
@@ -126,7 +154,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         self.twitterSearchMetaData = nil;
         self.twitterLoading = false;
         self.instagramLoading = false;
-        self.hideShowTableViewFooter(isLoading: false)
+        refreshControl.endRefreshing();
     }
 
     // MARK: UISearchBarDelegate methods
@@ -139,7 +167,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             }
             return
         }
-        
+        twitterSearchMetaData = nil;
         DispatchQueue.main.async { [unowned self] in
             if self.searchTimer != nil {
                 self.invalidateSearch()
@@ -150,17 +178,44 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
     }
     
+    private func hasProcessed(twitterResults results:[TWTRTweet]) -> Bool {
+        var processedTweetsAlready = true
+        if(datasource.isEmpty) {
+            processedTweetsAlready = false
+        }
+        if(processedTweetsAlready) {
+            var onlyTweets = self.datasource.filter { $0 is TWTRTweet}
+            let topTweet = onlyTweets[0] as! TWTRTweet
+            let latestTweetId = results[0].tweetID
+            if(topTweet.tweetID.caseInsensitiveCompare(latestTweetId) != ComparisonResult.orderedSame){
+                processedTweetsAlready = false
+            }
+            else {
+                print("Processed these tweets already!!")
+            }
+        }
+        return processedTweetsAlready
+    }
+    
     // MARK: - Notifications
     public func handleTweetsRetrievedNotification(_ notification:NSNotification) {
         //reload the table view here.....
         DispatchQueue.main.async { [unowned self] in
             if let tweets = notification.object as? [Any] {
-                self.datasource += tweets
-                self.twitterSearchMetaData = notification.userInfo as! [String : Any]?
-                self.tableView.reloadData()
-                print("got \(tweets.count) tweets from twitter!");
+                if (!self.hasProcessed(twitterResults: tweets as! [TWTRTweet])) {
+                    var tempDatasource:[Any] = [Any]()
+                    tempDatasource += tweets
+                    tempDatasource += self.datasource
+                    self.datasource = tempDatasource
+                    self.twitterSearchMetaData = notification.userInfo as! [String : Any]?
+                    self.tableView.reloadData()
+                    print("got \(tweets.count) tweets from twitter!");
+                }
             }
             self.twitterLoading = false
+            if (!self.instagramLoading) {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     
@@ -178,28 +233,15 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         self.datasource  += instagramMedia as [Any]
         print("after \(datasource.count)")
         tableView.reloadData()
+        if (!self.twitterLoading) {
+            self.refreshControl.endRefreshing()
+        }
     }
     
     public func handleInstagramMediaRetrievalFailedNotification(_ notification:NSNotification) {
         //TODO: get the error from the notification object and display alert to user.
         print("Instagram media retrieval failed with error: \(notification.object)")
         self.instagramLoading = false
-    }
-    
-    
-    // MARK: - Table view delegate methods
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let offset:CGPoint = scrollView.contentOffset
-        let bounds:CGRect = scrollView.bounds
-        let size:CGSize = scrollView.contentSize
-        let inset:UIEdgeInsets = scrollView.contentInset
-        let y:CGFloat = offset.y + bounds.size.height - inset.bottom
-        let h:CGFloat = size.height
-    
-        let reload_distance:CGFloat = 40
-        if(y > h + reload_distance) {
-            getNextPageOfResults()
-        }
     }
     
     
@@ -217,32 +259,10 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         let searchText = getSearchText()
         if (searchText.characters.count >= 2) {
             performSearch(searchText);
-            self.hideShowTableViewFooter(isLoading:true)
         }
         else {
-            self.hideShowTableViewFooter(isLoading:false)
+            refreshControl.endRefreshing()
         }
-        
-    }
-    
-    func hideShowTableViewFooter(isLoading loading:Bool) {
-        if(loading) {
-            if(self.tableView.tableFooterView == nil) {
-                //setup footer
-                let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-                spinner.startAnimating()
-                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: spinner.frame.height)
-                self.tableView.tableFooterView = spinner;
-            }
-            self.tableView.tableFooterView?.isHidden = false
-        }else {
-            self.tableView.tableFooterView?.isHidden = true
-        }
-    }
-    
-    
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -258,7 +278,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         let dataObj :Any = datasource[indexPath.row]
         if dataObj is InstagramMedia {
             let media:InstagramMedia = dataObj as! InstagramMedia
-            let instagramImageCell: HTInstagramImageCell = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.instagramImageCellIdentifer) as! HTInstagramImageCell
+            let instagramImageCell: HTInstagramImageCell = tableView.dequeueReusableCell(withIdentifier: instagramImageCellIdentifer) as! HTInstagramImageCell
             instagramImageCell.media = media
             if let caption = media.caption {
                 instagramImageCell.caption.text = caption.text
@@ -267,7 +287,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
         else {
             let tweet:TWTRTweet = datasource[indexPath.row] as! TWTRTweet
-            let tweetCell:TWTRTweetTableViewCell! = tableView.dequeueReusableCell(withIdentifier: HTMainViewController.tweetCellIdentifer) as! TWTRTweetTableViewCell
+            let tweetCell:TWTRTweetTableViewCell! = tableView.dequeueReusableCell(withIdentifier: tweetCellIdentifer) as! TWTRTweetTableViewCell
             
             tweetCell.configure(with: tweet)
             cell = tweetCell;
