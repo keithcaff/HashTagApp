@@ -10,5 +10,5 @@
 #define HashTagApp_Bridging_Header_h
 
 #import <InstagramKit/InstagramEngine.h>
-
+#import "SWRevealViewController.h"
 #endif /* HashTagApp_Bridging_Header_h */

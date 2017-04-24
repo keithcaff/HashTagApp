@@ -65,6 +65,7 @@ PODS:
     - UICKeyChainStore (~> 2.0)
   - Kingfisher (3.5.1)
   - SwiftyJSON (3.1.4)
+  - SWRevealViewController (2.3.0)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.1):
@@ -81,6 +82,7 @@ DEPENDENCIES:
   - InstagramKit/UICKeyChainStore
   - Kingfisher
   - SwiftyJSON
+  - SWRevealViewController
   - TwitterCore
   - TwitterKit
 
@@ -100,10 +102,11 @@ SPEC CHECKSUMS:
   InstagramKit: 402d6bba375357b548039de08eea19a1b8716354
   Kingfisher: 12eeffeef42ea45b68c5e5acfe8ba9005b713ab4
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
-PODFILE CHECKSUM: 4612e407c983ab6b74fdb58a62f5eef3f5a050c2
+PODFILE CHECKSUM: 992671af5c25d43564fde9758adc69c2ce3dd2a6
 
 COCOAPODS: 1.2.0

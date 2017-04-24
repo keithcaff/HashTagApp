@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SWRevealViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43285F3B8C293E3E1212400F02B293D0</key>
+		<key>462C1C9A232731C9FEE50F165D9354AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>83B2D7359677D3AE4045019F999619A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9302E4F6D8BAE4DAE7F861090BD8F091</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -88,6 +93,11 @@
 			<true/>
 		</dict>
 		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BCF1F2CDF68B9C4B1F35865982C506C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
