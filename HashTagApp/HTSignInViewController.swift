@@ -27,6 +27,9 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         else {
             GIDSignIn.sharedInstance().signInSilently()
         }
+        
+        //OLD TWITTER SIGN IN CODE
+        
 //        weak var weakSelf = self
 //        let logInButton = TWTRLogInButton { (session, error) in
 //            if let unwrappedSession = session {
@@ -64,6 +67,13 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let nav = self.navigationController {
+            nav.isNavigationBarHidden = true
+        }
     }
     
     override func didReceiveMemoryWarning() {

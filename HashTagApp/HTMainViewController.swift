@@ -17,7 +17,7 @@ import Kingfisher
 class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, HTInstagramLoginDelegate {
     
     private let refreshControl: UIRefreshControl = UIRefreshControl()
-    
+    private let searchBar:UISearchBar = UISearchBar()
     var searchTimer:Timer?
     var datasource:[Any] = [Any]()
     var isInstagramConnected: Bool = false;
@@ -34,20 +34,24 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     let instagramImageCellIdentifer = "instagramImageCell"
     let refreshControlTintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var searchTwitterViewController:HTSearchTwitterViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleTweetsRetrievedNotification(_ :)), name: .tweetsRetrieved, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleInstagramMediaRetrievedNotification(_ :)), name: .instagramMediaRetrieved, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleInstagramMediaRetrievalFailedNotification(_ :)), name: .instagramMediaRetrievalFailed, object: nil)
         
         registerXibs()
+        
         searchBar.delegate = self
+        searchBar.showsCancelButton = false
+        searchBar.placeholder = "Search a hashtag #HURRYUP!"
+        self.navigationItem.titleView = self.searchBar
+        
+        self.navigationController?.isNavigationBarHidden = false
         tableView.delegate = self;
         tableView.dataSource = self;
         searchTwitterViewController = HTSearchTwitterViewController()
@@ -79,9 +83,10 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let nav = self.navigationController {
-            nav.isNavigationBarHidden = true
-        }
+//        if let nav = self.navigationController {
+//            nav.isNavigationBarHidden = false
+//            nav.navigationItem.titleView = self.searchBar
+//        }
     }
     
     override func didReceiveMemoryWarning() {
