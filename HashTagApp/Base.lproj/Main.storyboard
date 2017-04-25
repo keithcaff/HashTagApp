@@ -36,12 +36,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZe-1c-Ktu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-716"/>
+            <point key="canvasLocation" x="4846" y="-732"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="1PB-7n-H8i">
             <objects>
-                <viewController id="f3r-aH-dlF" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootSWRevealViewController" id="f3r-aH-dlF" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jSO-1l-KDv"/>
                         <viewControllerLayoutGuide type="bottom" id="0wf-jO-jRW"/>
@@ -52,12 +52,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Zij-1q-agK" kind="custom" identifier="sw_rear" id="Jry-rm-wrZ"/>
+                        <segue destination="Zij-1q-agK" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="Jry-rm-wrZ"/>
+                        <segue destination="DnL-tX-5sc" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="jbA-PM-4pW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgv-Mw-RNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="-716"/>
+            <point key="canvasLocation" x="3857" y="-733"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="O9G-hK-ISp">
@@ -168,6 +169,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="instagramButton" destination="Rgz-wV-nlq" id="jCz-SC-Zwn"/>
+                        <outlet property="menuButton" destination="pQg-VO-UvV" id="1Io-9t-Kgg"/>
                         <outlet property="navigationItem" destination="Ya2-P2-sBP" id="erW-bI-EeK"/>
                         <outlet property="tableView" destination="pnU-aP-nZs" id="wg2-qV-q5t"/>
                     </connections>
@@ -234,7 +236,7 @@
         <!--Navigation Controller-->
         <scene sceneID="YUc-ds-azz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DnL-tX-5sc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavControllerVC" automaticallyAdjustsScrollViewInsets="NO" id="DnL-tX-5sc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="R5g-SO-xFX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

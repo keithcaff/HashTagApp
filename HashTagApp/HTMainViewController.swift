@@ -12,10 +12,12 @@ import Firebase
 import TwitterKit
 import InstagramKit
 import Kingfisher
+import SWRevealViewController
 
 
 class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, HTInstagramLoginDelegate {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     private let refreshControl: UIRefreshControl = UIRefreshControl()
     private let searchBar:UISearchBar = UISearchBar()
     var searchTimer:Timer?
@@ -40,25 +42,34 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //notifications setup
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleTweetsRetrievedNotification(_ :)), name: .tweetsRetrieved, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleInstagramMediaRetrievedNotification(_ :)), name: .instagramMediaRetrieved, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(HTMainViewController.handleInstagramMediaRetrievalFailedNotification(_ :)), name: .instagramMediaRetrievalFailed, object: nil)
         
-        registerXibs()
-        
+        //searchBarSetup
         searchBar.delegate = self
         searchBar.showsCancelButton = false
         searchBar.placeholder = "Search a hashtag #HURRYUP!"
         self.navigationItem.titleView = self.searchBar
-        
         self.navigationController?.isNavigationBarHidden = false
+        
+        
+        //menuButtonSetup
+        if revealViewController() != nil {
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        //tableViewSetup
+        registerXibs()
         tableView.delegate = self;
         tableView.dataSource = self;
         searchTwitterViewController = HTSearchTwitterViewController()
         tableView.estimatedRowHeight = 220
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
-        
         // Configure Refresh Control
         let attributes = [ NSForegroundColorAttributeName : refreshControlTintColor ] as [String: Any]
         refreshControl.tintColor = refreshControlTintColor
@@ -108,7 +119,8 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             try
                 FIRAuth.auth()?.signOut()
                 AppState.signedOut()
-                if let nav = self.navigationController {
+            
+                if let nav = self.navigationController?.navigationController {
                     nav.popToRootViewController(animated: true)// the root vc is the HTSignInViewController
                 }
         }

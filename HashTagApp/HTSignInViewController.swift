@@ -10,9 +10,11 @@ import UIKit
 import GoogleSignIn
 import Firebase
 import TwitterKit
+import SWRevealViewController
 class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var signInButton: GIDSignInButton!
+    var eaRootSWRevealViewController :SWRevealViewController?
     
     
     override func viewDidLoad() {
@@ -112,8 +114,9 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         DispatchQueue.main.async {
             AppState.signedIn(user)
             if let nav = weakSelf?.navigationController {
-                let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainVc") as! HTMainViewController
-                nav.pushViewController(secondViewController, animated: true)
+                
+                self.eaRootSWRevealViewController = (self.storyboard?.instantiateViewController(withIdentifier: "RootSWRevealViewController") as! SWRevealViewController)
+                nav.pushViewController(self.eaRootSWRevealViewController!, animated: true)
             }
             //let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.SignedIn)
             //NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
