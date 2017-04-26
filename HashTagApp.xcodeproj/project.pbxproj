@@ -22,6 +22,8 @@
 		5334F9721E3D03390002FDEA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F9701E3D03390002FDEA /* AppState.swift */; };
 		5334F9731E3D03390002FDEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5334F9711E3D03390002FDEA /* Constants.swift */; };
 		534C8DB61E5371EB00DD438C /* HTInstagramAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C8DB51E5371EB00DD438C /* HTInstagramAPIManager.swift */; };
+		5388C9DD1EAFC8CF0089947A /* HTMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5388C9DC1EAFC8CF0089947A /* HTMenu.storyboard */; };
+		5388C9E11EAFCCB00089947A /* HTMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5388C9E01EAFCCB00089947A /* HTMenuViewController.swift */; };
 		53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EABFBF1E3CDA9900649275 /* AppDelegate.swift */; };
 		53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC31E3CDA9900649275 /* Main.storyboard */; };
 		53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53EABFC61E3CDA9900649275 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		5334F9701E3D03390002FDEA /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5334F9711E3D03390002FDEA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		534C8DB51E5371EB00DD438C /* HTInstagramAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTInstagramAPIManager.swift; sourceTree = "<group>"; };
+		5388C9DC1EAFC8CF0089947A /* HTMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HTMenu.storyboard; sourceTree = "<group>"; };
+		5388C9E01EAFCCB00089947A /* HTMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMenuViewController.swift; path = Controllers/HTMenuViewController.swift; sourceTree = "<group>"; };
 		53EABFBC1E3CDA9900649275 /* HashTagApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HashTagApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EABFBF1E3CDA9900649275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53EABFC41E3CDA9900649275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 				5319727D1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib */,
 				44F435281E6A389C005AF746 /* HTBusyTableViewCell.xib */,
 				44F4352A1E6A3CB2005AF746 /* HTBusyTableViewCell.swift */,
+				5388C9DC1EAFC8CF0089947A /* HTMenu.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				5334F96C1E3CF8540002FDEA /* HTMainViewController.swift */,
 				53F47B4F1E40C5850034B7A3 /* HTSearchTwitterViewController.swift */,
 				44799ACE1E4BB66F00988329 /* HTInstagramLoginViewController.swift */,
+				5388C9E01EAFCCB00089947A /* HTMenuViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 				5319727E1E54D01E00315FCB /* HTInstagramImageTableViewCell.xib in Resources */,
 				5334F96B1E3CE7D40002FDEA /* HashTagLaunchScreen.storyboard in Resources */,
 				44F435291E6A389C005AF746 /* HTBusyTableViewCell.xib in Resources */,
+				5388C9DD1EAFC8CF0089947A /* HTMenu.storyboard in Resources */,
 				53EABFD21E3CDAD500649275 /* GoogleService-Info.plist in Resources */,
 				53EABFC71E3CDA9900649275 /* Assets.xcassets in Resources */,
 				53EABFC51E3CDA9900649275 /* Main.storyboard in Resources */,
@@ -388,6 +395,7 @@
 				5334F96F1E3CFD910002FDEA /* HTSignInViewController.swift in Sources */,
 				534C8DB61E5371EB00DD438C /* HTInstagramAPIManager.swift in Sources */,
 				53EABFC01E3CDA9900649275 /* AppDelegate.swift in Sources */,
+				5388C9E11EAFCCB00089947A /* HTMenuViewController.swift in Sources */,
 				5319727C1E54CFA200315FCB /* HTInstagramImageCell.swift in Sources */,
 				5334F9721E3D03390002FDEA /* AppState.swift in Sources */,
 			);
