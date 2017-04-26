@@ -21,26 +21,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nqO-wK-dKh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nqO-wK-dKh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="617" id="vzC-7r-m0D"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuHeaderCell" id="Ybb-fW-0ia">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HTMenuItemCell" id="Ybb-fW-0ia">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ybb-fW-0ia" id="XmX-GO-dxB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hashtag-launch" translatesAutoresizingMaskIntoConstraints="NO" id="d1h-ML-ohf">
+                                                <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hashtag-launch" translatesAutoresizingMaskIntoConstraints="NO" id="d1h-ML-ohf">
                                                     <rect key="frame" x="8" y="4" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="7cm-rn-iFn"/>
                                                         <constraint firstAttribute="width" constant="35" id="oOx-My-3vo"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HashTagApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocx-yK-IM0">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="HTMenuItemCell" text="HashTagApp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocx-yK-IM0">
                                                     <rect key="frame" x="51" y="8" width="185" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="185" id="UTM-XR-pIr"/>
@@ -59,24 +61,34 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuOption1" id="Rai-wD-xWp">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rai-wD-xWp" id="2a3-hr-35u">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IsG-Ni-6c8">
-                                <rect key="frame" x="0.0" y="616" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsG-Ni-6c8">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signOut" translatesAutoresizingMaskIntoConstraints="NO" id="Au8-4h-Svh">
+                                        <rect key="frame" x="15" y="10" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dET-wj-JJs"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nqO-wK-dKh" firstAttribute="width" secondItem="JOy-nI-iVa" secondAttribute="width" id="DE5-wa-IEe"/>
+                            <constraint firstItem="IsG-Ni-6c8" firstAttribute="top" secondItem="nqO-wK-dKh" secondAttribute="bottom" id="Idg-G4-1CI"/>
+                            <constraint firstAttribute="trailing" secondItem="nqO-wK-dKh" secondAttribute="trailing" id="L2G-AA-cw7"/>
+                            <constraint firstItem="IsG-Ni-6c8" firstAttribute="bottom" secondItem="dhU-8d-cRT" secondAttribute="top" id="XTz-75-R04"/>
+                            <constraint firstAttribute="trailing" secondItem="IsG-Ni-6c8" secondAttribute="trailing" id="c1w-zX-hTe"/>
+                            <constraint firstItem="nqO-wK-dKh" firstAttribute="leading" secondItem="JOy-nI-iVa" secondAttribute="leading" id="g0w-y7-TZM"/>
+                            <constraint firstItem="IsG-Ni-6c8" firstAttribute="width" secondItem="JOy-nI-iVa" secondAttribute="width" id="jh3-nD-DMe"/>
+                            <constraint firstItem="IsG-Ni-6c8" firstAttribute="leading" secondItem="JOy-nI-iVa" secondAttribute="leading" id="npr-Uy-3Uo"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="footerView" destination="IsG-Ni-6c8" id="epV-V6-DGV"/>
@@ -85,10 +97,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpC-iC-bpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="170"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="169.56521739130437"/>
         </scene>
     </scenes>
     <resources>
         <image name="Hashtag-launch" width="100" height="100"/>
+        <image name="signOut" width="100" height="100"/>
     </resources>
 </document>

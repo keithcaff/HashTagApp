@@ -66,7 +66,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         registerXibs()
         tableView.delegate = self;
         tableView.dataSource = self;
-        searchTwitterViewController = HTSearchTwitterViewController()
+        searchTwitterViewController = HTSearchTwitterViemufcwController()
         tableView.estimatedRowHeight = 220
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
