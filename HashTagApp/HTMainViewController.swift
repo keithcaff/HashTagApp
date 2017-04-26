@@ -50,7 +50,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         //searchBarSetup
         searchBar.delegate = self
         searchBar.showsCancelButton = false
-        searchBar.placeholder = "Search a hashtag #HURRYUP!"
+        searchBar.placeholder = "Search a hashtag"
         self.navigationItem.titleView = self.searchBar
         self.navigationController?.isNavigationBarHidden = false
         
@@ -66,7 +66,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         registerXibs()
         tableView.delegate = self;
         tableView.dataSource = self;
-        searchTwitterViewController = HTSearchTwitterViemufcwController()
+        searchTwitterViewController = HTSearchTwitterViewController()
         tableView.estimatedRowHeight = 220
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelection = false
