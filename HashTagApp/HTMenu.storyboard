@@ -67,14 +67,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsG-Ni-6c8">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signOut" translatesAutoresizingMaskIntoConstraints="NO" id="Au8-4h-Svh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x58-xJ-MEA">
+                                        <rect key="frame" x="53" y="7" width="179" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="BcI-9p-Lmm"/>
+                                            <constraint firstAttribute="width" constant="179" id="aUM-Ni-lqP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Sign out"/>
+                                        <connections>
+                                            <action selector="signOutButtonTapped:" destination="Sbg-nR-OYQ" eventType="touchUpInside" id="GW7-RI-1eU"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signOut" translatesAutoresizingMaskIntoConstraints="NO" id="Au8-4h-Svh">
                                         <rect key="frame" x="15" y="10" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="AqQ-Va-kMZ"/>
+                                            <constraint firstAttribute="width" constant="30" id="KcG-Jd-Dxp"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Au8-4h-Svh" firstAttribute="leading" secondItem="IsG-Ni-6c8" secondAttribute="leading" constant="15" id="4pC-d4-DN8"/>
+                                    <constraint firstItem="x58-xJ-MEA" firstAttribute="centerY" secondItem="IsG-Ni-6c8" secondAttribute="centerY" id="KIL-V8-sTw"/>
+                                    <constraint firstItem="x58-xJ-MEA" firstAttribute="leading" secondItem="Au8-4h-Svh" secondAttribute="trailing" constant="8" id="VLp-6s-abE"/>
+                                    <constraint firstItem="Au8-4h-Svh" firstAttribute="centerY" secondItem="IsG-Ni-6c8" secondAttribute="centerY" id="ZCI-eT-r5q"/>
                                     <constraint firstAttribute="height" constant="50" id="dET-wj-JJs"/>
+                                    <constraint firstAttribute="trailing" secondItem="x58-xJ-MEA" secondAttribute="trailing" constant="143" id="nvB-yu-NLI"/>
                                 </constraints>
                             </view>
                         </subviews>

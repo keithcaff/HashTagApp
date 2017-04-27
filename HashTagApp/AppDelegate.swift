@@ -63,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         // ...
         if let error = error {
             print("Google sign in err \(error) ");
+            NotificationCenter.default.post(name: .firebaseSignInFailed, object: error)
             return
         }
         
@@ -76,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             // ...
             if let error = error {
                 print("Firebase sign in failed \(error) ");
+                NotificationCenter.default.post(name: .firebaseSignInFailed, object: error)
                 return
             }
             else {
@@ -84,7 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
                NotificationCenter.default.post(name: .firebaseSignInSuccess, object: user)
             }
         }
-        
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,

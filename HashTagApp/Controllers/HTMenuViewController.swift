@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SWRevealViewController
+import GoogleSignIn
+import Firebase
 
 class HTMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -54,4 +57,24 @@ class HTMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return menuItemCell
     }
     
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        do {
+            try
+                FIRAuth.auth()?.signOut()
+                AppState.signedOut()
+            
+                if let nav = revealViewController().frontViewController.navigationController {
+                    revealViewController().revealToggle(animated: true)
+                    nav.popToRootViewController(animated: true)// the root vc is the HTSignInViewController
+                }
+        }
+        catch  {
+            let alert = UIAlertController(title: "Logout failed",
+                                          message: "Unable to logout",
+                                          preferredStyle: UIAlertControllerStyle.alert
+            )
+            self.present(alert, animated: true, completion: nil)
+            print ("signOutButtonTapped - sign out failed with \(sender)")
+        }
+    }
 }

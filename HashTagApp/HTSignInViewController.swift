@@ -13,6 +13,8 @@ import TwitterKit
 import SWRevealViewController
 class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var signInContainerView: UIView!
     @IBOutlet weak var signInButton: GIDSignInButton!
     var eaRootSWRevealViewController :SWRevealViewController?
     
@@ -21,13 +23,16 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(HTSignInViewController.handleSignInNotification(_ :)), name: .firebaseSignInSuccess, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(HTSignInViewController.handleSignInFailedNotification(_ :)), name: .firebaseSignInFailed, object: nil)
         
         GIDSignIn.sharedInstance().uiDelegate = self
         if let user = FIRAuth.auth()?.currentUser {
             self.signedIn(user)
+            enableSignIn(false)
         }
         else {
             GIDSignIn.sharedInstance().signInSilently()
+            enableSignIn(false)
         }
         
         //OLD TWITTER SIGN IN CODE
@@ -52,11 +57,25 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     
+    func enableSignIn(_ enable:Bool) {
+        if(enable) {
+            activityIndicator.isHidden = true
+            signInContainerView.isUserInteractionEnabled = true
+        }
+        else {
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            signInContainerView.isUserInteractionEnabled = false
+        }
+    }
+    
+    
     func authenticateWithFirebase(_ credential:FIRAuthCredential) {
         weak var weakSelf = self
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
             if let error = error {
                 print ("HTSignInViewController - authenticateWithFirebase failed with error \(error)")
+                weakSelf?.signInButton.isEnabled = true;
                 return
             }
             else {
@@ -83,23 +102,10 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
-    
-    
-    // MARK: GIDSignInUIDelegate methods
-    
-    // The sign-in flow has finished selecting how to proceed, and the UI should no longer display
-    public func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
-        print ("GIDSignInUIDelegate (HTSignInViewController) - sign in failed with error \(error)")
+    //MARK: Sign in notification methods
+    func handleSignInFailedNotification(_ notification:NSNotification) {
+        self.enableSignIn(true)
     }
     
     func handleSignInNotification(_ notification:NSNotification) {
@@ -116,7 +122,10 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
             if let nav = weakSelf?.navigationController {
                 
                 self.eaRootSWRevealViewController = (self.storyboard?.instantiateViewController(withIdentifier: "RootSWRevealViewController") as! SWRevealViewController)
-                nav.pushViewController(self.eaRootSWRevealViewController!, animated: true)
+                if(nav.viewControllers.count < 2) {
+                    nav.pushViewController(self.eaRootSWRevealViewController!, animated: true)
+                }
+                self.enableSignIn(true)
             }
             //let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.SignedIn)
             //NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)

@@ -10,6 +10,7 @@ import NotificationCenter
 
 extension Notification.Name {
     static let firebaseSignInSuccess = Notification.Name("notification.ht.firebase.signIn.success")
+    static let firebaseSignInFailed = Notification.Name("notification.ht.firebase.signIn.failed")
     static let tweetsRetrieved = Notification.Name("notification.ht.twitter.tweets.retrieved")
     static let instagramMediaRetrieved = Notification.Name("notification.ht.instagram.media.retrieved")
     static let instagramMediaRetrievalFailed = Notification.Name("notification.ht.instagram.media.retrieval.failed")
