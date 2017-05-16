@@ -57,6 +57,15 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     
+    @IBAction func signInButtonClicked(_ sender: Any) {
+        enableSignIn(false)
+    }
+    
+    
+    public func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        enableSignIn(true)
+    }
+    
     func enableSignIn(_ enable:Bool) {
         if(enable) {
             activityIndicator.isHidden = true
@@ -105,6 +114,7 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     
     //MARK: Sign in notification methods
     func handleSignInFailedNotification(_ notification:NSNotification) {
+        //TODO: show UI ALERT WITH ERROR
         self.enableSignIn(true)
     }
     
