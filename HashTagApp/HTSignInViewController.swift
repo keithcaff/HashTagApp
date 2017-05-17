@@ -24,17 +24,8 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(HTSignInViewController.handleSignInNotification(_ :)), name: .firebaseSignInSuccess, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(HTSignInViewController.handleSignInFailedNotification(_ :)), name: .firebaseSignInFailed, object: nil)
-        
         GIDSignIn.sharedInstance().uiDelegate = self
-        if let user = FIRAuth.auth()?.currentUser {
-            self.signedIn(user)
-            enableSignIn(false)
-        }
-        else {
-            GIDSignIn.sharedInstance().signInSilently()
-            enableSignIn(false)
-        }
-        
+        self.activityIndicator.isHidden = true
         //OLD TWITTER SIGN IN CODE
         
 //        weak var weakSelf = self
@@ -57,24 +48,28 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     
-    @IBAction func signInButtonClicked(_ sender: Any) {
-        enableSignIn(false)
-    }
-    
-    
     public func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
-        enableSignIn(true)
+        if let user = FIRAuth.auth()?.currentUser {
+            self.signedIn(user)
+            enableSignIn(false)
+        }
+        else {
+            GIDSignIn.sharedInstance().signInSilently()
+            enableSignIn(false)
+        }
     }
     
     func enableSignIn(_ enable:Bool) {
-        if(enable) {
-            activityIndicator.isHidden = true
-            signInContainerView.isUserInteractionEnabled = true
-        }
-        else {
-            activityIndicator.isHidden = false
-            activityIndicator.startAnimating()
-            signInContainerView.isUserInteractionEnabled = false
+        DispatchQueue.main.async {
+            if(enable) {
+                self.activityIndicator.isHidden = true
+                self.signInContainerView.isUserInteractionEnabled = true
+            }
+            else {
+                self.activityIndicator.isHidden = false
+                self.activityIndicator.startAnimating()
+                self.signInContainerView.isUserInteractionEnabled = false
+            }
         }
     }
     
@@ -97,6 +92,7 @@ class HTSignInViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

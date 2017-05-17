@@ -16,7 +16,7 @@ import SWRevealViewController
 
 
 class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, HTInstagramLoginDelegate {
-    
+    static var  displayConnectInstagramAlert = true
     @IBOutlet weak var menuButton: UIBarButtonItem!
     private let refreshControl: UIRefreshControl = UIRefreshControl()
     private let searchBar:UISearchBar = UISearchBar()
@@ -27,6 +27,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     var instagramSearchMetaData : [String : Any]?
     var busyCell: HTBusyTableViewCell?
     var instagramLoading: Bool = false
+    var lastSearchText: String = ""
     var twitterLoading: Bool = false
     let instagramMetaDataKey = "instagramMetaDataKey"
     let twitterMetaDataKey = "twitterMetaDataKey"
@@ -36,7 +37,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     let instagramImageCellIdentifer = "instagramImageCell"
     let refreshControlTintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
     
-    @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var searchTwitterViewController:HTSearchTwitterViewController?
     
@@ -78,10 +78,7 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.refreshControl = refreshControl
         
         let instaEngine = InstagramEngine.shared()
-        if instaEngine.accessToken != nil {
-            isInstagramConnected = true;
-            self.instagramButton.isHidden = isInstagramConnected;
-        }
+        isInstagramConnected = instaEngine.accessToken != nil
     }
     
     func registerXibs() {
@@ -100,19 +97,41 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
 //        }
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if(!isInstagramConnected && HTMainViewController.displayConnectInstagramAlert) {
+            //Show alert to connect instagram
+            let alert = UIAlertController(title: "Connect Instagram",
+                                          message: "Connect instagram to view more search results",
+                                          preferredStyle: UIAlertControllerStyle.actionSheet
+            )
+            alert.addAction(UIAlertAction(title: "Okay",
+                                          style: UIAlertActionStyle.default,
+                                          handler: {(alert: UIAlertAction!) in self.connectInstagram()}))
+            
+            alert.addAction(UIAlertAction(title: "Cancel",
+                                          style: UIAlertActionStyle.default,
+                                          handler: {(alert: UIAlertAction!) in HTMainViewController.displayConnectInstagramAlert = false}))
+            
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Actions
-    @IBAction func instagramButtonTapped(_ sender: Any) {
+    func connectInstagram() {
         if let nav = self.navigationController {
             let instagramLoginVC = self.storyboard?.instantiateViewController(withIdentifier: "instagramLoginVC") as! HTInstagramLoginViewController
             instagramLoginVC.delegate = self
             nav.pushViewController(instagramLoginVC, animated: true)
         }
     }
+    
+    // MARK: Actions
     
     @IBAction func signOutButtonTapped(_ sender: Any) {
         do {
@@ -155,8 +174,10 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         }
     }
     
+    
     func performSearch(_ searchText:String) {
         //clear old search first
+        lastSearchText = searchText
         DispatchQueue.main.async { [unowned self] in
             self.datasource =  [Any]()
             self.tableView.reloadData();
@@ -181,14 +202,19 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
 
     // MARK: UISearchBarDelegate methods
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         let text = getSearchText()
+        
+        guard text != lastSearchText else {
+            return
+        }
+        
         if (text.characters.count < 2) {
             if self.searchTimer != nil {
                 self.invalidateSearch()
             }
             return
         }
+        
         twitterSearchMetaData = nil;
         DispatchQueue.main.async { [unowned self] in
             if self.searchTimer != nil {
@@ -273,13 +299,13 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             searchText = text
             searchText = searchText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
-        return searchText
+        return (searchText.characters.count >= 2) ? searchText : lastSearchText
     }
     
     func getNextPageOfResults() {
         //TODO: make call to twitter and instagram apis if connected.
-        let searchText = getSearchText()
-        if (searchText.characters.count >= 2) {
+        var searchText = getSearchText()
+        if(searchText.characters.count >= 2) {
             performSearch(searchText);
         }
         else {
@@ -324,7 +350,6 @@ class HTMainViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     // MARK: - HTInstagramLoginDelegate methods
     func authorizedInstagramSuccessfully(user:InstagramUser!) {
         self.isInstagramConnected = true
-        instagramButton.isHidden = true
         if let nav = self.navigationController {
             nav.popViewController(animated:true)
         }
