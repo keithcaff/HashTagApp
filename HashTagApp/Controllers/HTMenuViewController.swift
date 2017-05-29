@@ -15,11 +15,15 @@ class HTMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     private let menuItemCellIdentifier = "HTMenuItemCell"
     private let sectionHeaderCellIdentifier = "HTMenuHeaderCell"
+    private static let trendingTagsMenuItem = "Trending Tags"
+    private static let historyMenuItem = "History"
+    private static let settingsMenuItem = "Settings"
+    static let menuItems = [trendingTagsMenuItem,historyMenuItem,settingsMenuItem];
     private let menuItemImageTag = 101
     private let menuItemLabelTag = 102
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var footerView: UIView!
-    let menuItems = ["Trending Tags","History","Settings"];
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +51,27 @@ class HTMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     //MARK: UITableViewDataSource delegate methods
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuItems.count;
+        return HTMenuViewController.menuItems.count;
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = HTMenuViewController.menuItems[indexPath.row];
+        switch selectedItem {
+        case HTMenuViewController.historyMenuItem:
+            print("history selected")
+        case HTMenuViewController.settingsMenuItem:
+            print("settings selected")
+        case HTMenuViewController.trendingTagsMenuItem:
+            print("trending tags selected")
+        default:
+            print("default block does nothing")
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let menuItemCell:UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: menuItemCellIdentifier)
         let menuItemLabel:UILabel = menuItemCell?.viewWithTag(menuItemLabelTag) as! UILabel
-        menuItemLabel.text = menuItems[indexPath.row];
+        menuItemLabel.text = HTMenuViewController.menuItems[indexPath.row];
         return menuItemCell
     }
     
@@ -77,4 +95,5 @@ class HTMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print ("signOutButtonTapped - sign out failed with \(sender)")
         }
     }
+    
 }
